@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Enable the nitro Cloudflare build outside the Lovable sandbox so `vite build`
+  // produces a deployable Cloudflare Worker (.output) for self-hosting.
+  nitro: {
+    preset: "cloudflare-module",
+    cloudflare: { nodeCompat: true, deployConfig: true },
+  },
 });
