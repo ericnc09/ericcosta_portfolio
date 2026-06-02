@@ -13,6 +13,73 @@ export type CaseStudy = {
 };
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  "madrid-betar": {
+    slug: "madrid-betar",
+    kicker: "Startup · 0 → 1 · Founder",
+    title: "Madrid Betar: Real Madrid Fan Platform",
+    subtitle:
+      "Co-founded a Real Madrid fan-media startup and grew it from zero to 30,000 monthly active users across websites and football podcasts, then built and priced a paid subscription tier.",
+    meta: [
+      { label: "Role", value: "Co-founder: product, growth, monetization" },
+      { label: "Surfaces", value: "Websites · football podcasts" },
+      { label: "Team", value: "5 writers (editorial)" },
+      { label: "Outcome", value: "30K MAU · paid Prime tier" },
+    ],
+    hero: [
+      { value: "30K", label: "Monthly active users" },
+      { value: "50K", label: "Monthly visitors in 6 months" },
+      { value: "60", label: "Paying Prime subscribers" },
+      { value: "5", label: "Writers in editorial" },
+    ],
+    body: (
+      <>
+        <CaseSection label="Premise" title="A fan base underserved by generic coverage.">
+          <Prose>
+            <p>
+              Real Madrid has one of the largest fan bases in the world, but most coverage is either
+              club-controlled or generic aggregation. I co-founded Madrid Betar to build a dedicated
+              home for serious, opinionated Real Madrid analysis across written pieces and football
+              podcasts.
+            </p>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Growth" title="Zero to 30K monthly active users.">
+          <Prose>
+            <p>
+              We grew from a standing start to <strong>30,000 monthly active users</strong>, with{" "}
+              <strong>50,000 monthly visitors within six months</strong>, across the website and
+              podcast channels. I ran editorial across <strong>five writers</strong>, setting the
+              publishing cadence and the topics that actually moved engagement.
+            </p>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Monetization" title="Madrid Betar Prime: the free-to-paid funnel.">
+          <Prose>
+            <p>
+              I built and launched the paid subscription tier, <strong>Madrid Betar Prime</strong>,
+              owning pricing, packaging, and the free-to-paid conversion funnel. The first cohort
+              converted <strong>60 paying subscribers</strong>, validating that a niche, high-intent
+              audience will pay for depth over volume.
+            </p>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Why it's here" title="Product and growth, end to end.">
+          <Prose>
+            <p>
+              Madrid Betar is the clearest example of me owning a product from zero: audience
+              growth, editorial operations, and a monetization model with a real conversion funnel,
+              not just a content hobby.
+            </p>
+          </Prose>
+        </CaseSection>
+      </>
+    ),
+    links: [{ label: "Facebook", href: "https://www.facebook.com/madridbetar" }],
+  },
+
   "3gpp-rag": {
     slug: "3gpp-rag",
     kicker: "AI · 0 → 1 · Production",
@@ -158,6 +225,17 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     body: (
       <>
+        <figure className="mb-2">
+          <img
+            src="/eras-tour.jpg"
+            alt="The Eras Tour stage at Rogers Centre, Toronto, with the stadium full"
+            className="w-full rounded-lg border border-border"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-xs text-muted-foreground">
+            The Eras Tour at Rogers Centre, Toronto.
+          </figcaption>
+        </figure>
         <CaseSection label="Context" title="A stadium designed for crowds, not 5G.">
           <Prose>
             <p>
@@ -278,6 +356,17 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     body: (
       <>
+        <figure className="mb-2">
+          <img
+            src="/ttc.jpg"
+            alt="On site in a TTC equipment room during the subway 5G integration"
+            className="w-full max-w-sm rounded-lg border border-border"
+            loading="lazy"
+          />
+          <figcaption className="mt-2 text-xs text-muted-foreground">
+            On site during the overnight TTC integration windows.
+          </figcaption>
+        </figure>
         <CaseSection label="Context" title="A federal deadline to connect the subway.">
           <Prose>
             <p>
@@ -502,5 +591,100 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       </>
     ),
     links: [{ label: "GitHub", href: "https://github.com/ericnc09/financial-planner" }],
+  },
+
+  "football-intelligently": {
+    slug: "football-intelligently",
+    kicker: "AI · ML Research · 0 → 1",
+    title: "Football Intelligently: GNN Expected Goals",
+    subtitle:
+      "A graph neural network that models players as nodes and their spatial interactions as edges to value shots from StatsBomb 360 freeze frames, reaching 95.7% of StatsBomb's proprietary xG using only free, open data.",
+    meta: [
+      { label: "Role", value: "Solo: research + engineering" },
+      { label: "Model", value: "HybridGATv2 + temperature scaling" },
+      { label: "Data", value: "StatsBomb 360 · 326 matches · 7 comps" },
+      { label: "Status", value: "MIT Sloan paper in progress" },
+    ],
+    hero: [
+      { value: "0.760", label: "Shot xG AUC" },
+      { value: "95.7%", label: "Of StatsBomb's proprietary xG" },
+      { value: "8,013", label: "Shots modeled" },
+      { value: "0.148", label: "Brier score" },
+    ],
+    body: (
+      <>
+        <CaseSection label="Premise" title="A shot is a relationship, not a coordinate.">
+          <Prose>
+            <p>
+              Classic expected-goals (xG) models treat a shot as a handful of scalar features:
+              distance, angle, body part. But whether a shot goes in depends on where every other
+              player is standing. I modeled each shot as a graph, players as nodes and their spatial
+              interactions as edges, so the model can reason about defensive shape and goalkeeper
+              positioning as relational structure.
+            </p>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Model" title="HybridGATv2 on freeze frames.">
+          <Prose>
+            <p>
+              The production model is a <strong>HybridGAT+T</strong>: a GATv2 graph-attention
+              network over the StatsBomb 360 freeze frame, fused with 27 dimensions of shot metadata
+              (post-shot xG placement, goalkeeper geometry, defensive blocking, foot preference),
+              with per-competition temperature scaling for calibration. It scores{" "}
+              <strong>AUC 0.760</strong> and a <strong>Brier of 0.148</strong> on 8,013 shots across
+              seven competitions.
+            </p>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Result" title="95.7% of a proprietary model, on open data.">
+          <Prose>
+            <p>
+              The model reaches <strong>95.7% of StatsBomb's proprietary xG AUC</strong> using only
+              free, open data, validated across men's and women's competitions (World Cups, Euros,
+              Bundesliga). Permutation importance across 12 feature groups showed goalkeeper
+              distance dominates (+0.223 AUC when shuffled), ahead of shot distance and the header
+              flag.
+            </p>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Dashboard" title="An interactive analyst tool.">
+          <Prose>
+            <p>
+              The dashboard turns the model into something an analyst can use: shot maps coloured by
+              model xG, a shot inspector with gradient-saliency and attention overlays showing which
+              players the model attended to, calibration and reliability diagrams, full match
+              reports with cumulative xG timelines, and a "surprise goals" view that surfaces
+              sub-15% xG strikes.
+            </p>
+            <figure className="mt-2">
+              <img
+                src="/football-dashboard.jpg"
+                alt="Football Intelligently dashboard: shot map, freeze frame, gradient saliency, and xG comparison"
+                className="w-full rounded-lg border border-border"
+                loading="lazy"
+              />
+              <figcaption className="mt-2 text-xs text-muted-foreground">
+                The dashboard: shot map, freeze frame, saliency overlay, and xG comparison.
+              </figcaption>
+            </figure>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Why it's here" title="Research rigor, shipped.">
+          <Prose>
+            <p>
+              Five novel contributions are confirmed against the literature, and a paper targeting
+              the MIT Sloan Sports Analytics Conference is in progress. It is the side of me that
+              takes an idea from raw open data to a calibrated, evaluated model with an interface,
+              not just a notebook.
+            </p>
+          </Prose>
+        </CaseSection>
+      </>
+    ),
+    links: [{ label: "GitHub", href: "https://github.com/ericnc09/football-analysis" }],
   },
 };

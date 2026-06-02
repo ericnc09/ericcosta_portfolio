@@ -1,5 +1,3 @@
-import headshot from "@/assets/eric-headshot.jpeg.asset.json";
-
 export const SITE = {
   name: "Eric Costa",
   role: "Product Manager",
@@ -10,10 +8,19 @@ export const SITE = {
   linkedin: "https://www.linkedin.com/in/ericcostanil",
   github: "https://github.com/ericnc09",
   substack: "https://ericccosta.substack.com",
-  headshot: headshot.url,
+  headshot: "/eric-headshot.jpg",
 };
 
 export const WORKS = [
+  {
+    slug: "madrid-betar",
+    title: "Madrid Betar: Real Madrid Fan Platform",
+    kicker: "Startup · 0→1 · Founder",
+    summary:
+      "Co-founded a Real Madrid fan-media startup and grew it from zero to 30,000 monthly active users across web and podcasts, with a paid subscription tier.",
+    metric: "0 → 30K MAU",
+    sub: "50K monthly visitors in 6 months · paid Prime tier",
+  },
   {
     slug: "3gpp-rag",
     title: "Telecom Standards Assistant: 3GPP RAG",
@@ -59,6 +66,15 @@ export const WORKS = [
     metric: "9 quant models",
     sub: "FDR control · 4-model agreement gate · Granger validation",
   },
+  {
+    slug: "football-intelligently",
+    title: "Football Intelligently: GNN xG",
+    kicker: "AI · ML Research · 0→1",
+    summary:
+      "A graph neural network that values shots from StatsBomb 360 freeze frames, reaching 95.7% of StatsBomb's proprietary xG using only free, open data.",
+    metric: "0.760 AUC",
+    sub: "8,013 shots · 7 competitions · MIT Sloan paper in progress",
+  },
 ] as const;
 
 export type WorkSlug = (typeof WORKS)[number]["slug"];
@@ -79,10 +95,6 @@ export const HIGHLIGHTS = [
   {
     title: "Ted Rogers Award for Innovation in 5G (2024)",
     body: "Led the TTC 5G subway launch, 85 stations and 15 km of tunnels, delivered under a federal regulatory deadline via a MOCN solution integrating Bell and Telus into the TTC DAS.",
-  },
-  {
-    title: "Co-founded a Real Madrid fan platform",
-    body: "Grew a Real Madrid fan platform from zero to 30,000 monthly active users (50K monthly visitors within six months) across web and football podcasts, and launched the paid 'Madrid Betar Prime' subscription tier.",
   },
 ] as const;
 

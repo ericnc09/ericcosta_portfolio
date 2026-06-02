@@ -72,8 +72,8 @@ function Index() {
             <h2 className="mt-3 font-serif text-3xl md:text-4xl">Strategy meets shipping.</h2>
           </div>
           <p className="hidden max-w-xs text-sm text-muted-foreground md:block">
-            Five bets across AI, telecom hardware, 5G transit, cross-carrier programs, and a 0→1
-            side build.
+            A startup, AI products, telecom hardware, 5G transit, cross-carrier programs, and ML
+            side builds.
           </p>
         </div>
         <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
@@ -107,7 +107,7 @@ function Index() {
       <section className="border-t border-border">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <SectionLabel>Career highlights</SectionLabel>
-          <h2 className="mt-3 font-serif text-3xl md:text-4xl">Six years, five highlights.</h2>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl">Six years, in highlights.</h2>
           <div className="mt-12 grid gap-x-10 gap-y-10 md:grid-cols-2">
             {HIGHLIGHTS.map((h, i) => (
               <div key={h.title} className="flex gap-5 border-t border-border pt-6">

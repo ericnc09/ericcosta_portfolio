@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CASE_STUDIES } from "@/lib/case-studies";
-import { SectionLabel, Pill } from "@/components/site/primitives";
+import { Pill } from "@/components/site/primitives";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -53,6 +53,26 @@ function WorkPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{cs.subtitle}</p>
 
+          {cs.links && (
+            <div className="mt-8 flex flex-wrap gap-3">
+              {cs.links.map((l, i) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={
+                    i === 0
+                      ? "rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:opacity-90"
+                      : "rounded-md border border-border px-5 py-2.5 text-sm font-medium hover:bg-secondary"
+                  }
+                >
+                  {l.label} →
+                </a>
+              ))}
+            </div>
+          )}
+
           <dl className="mt-12 grid gap-x-8 gap-y-6 border-y border-border py-8 sm:grid-cols-2 md:grid-cols-4">
             {cs.meta.map((m) => (
               <div key={m.label}>
@@ -80,25 +100,6 @@ function WorkPage() {
       </section>
 
       <div className="mx-auto max-w-4xl px-6 py-8">{cs.body}</div>
-
-      {cs.links && (
-        <div className="mx-auto max-w-4xl px-6 pb-12">
-          <SectionLabel>Links</SectionLabel>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {cs.links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-md border border-border px-4 py-2 text-sm hover:bg-secondary"
-              >
-                {l.label} →
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
 
       <div className="mx-auto max-w-4xl border-t border-border px-6 py-12">
         <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
