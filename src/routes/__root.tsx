@@ -4,12 +4,14 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { POSTHOG_SNIPPET } from "../lib/analytics";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -117,6 +119,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: POSTHOG_SNIPPET }} />
       </head>
       <body>
         {children}
@@ -126,11 +129,23 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function PostHogPageview() {
+  const href = useRouterState({ select: (s) => s.location.href });
+  useEffect(() => {
+    const ph = (globalThis as { posthog?: { capture?: (e: string) => void } }).posthog;
+    if (ph && typeof ph.capture === "function") {
+      ph.capture("$pageview");
+    }
+  }, [href]);
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <PostHogPageview />
       <SiteLayout>
         <Outlet />
       </SiteLayout>
