@@ -13,22 +13,22 @@ export const SITE = {
 
 export const WORKS = [
   {
-    slug: "madrid-betar",
-    title: "Madrid Betar: Real Madrid Fan Platform",
-    kicker: "Startup · 0→1 · Founder",
-    summary:
-      "Co-founded a Real Madrid fan-media startup and grew it from zero to 30,000 monthly active users across web and podcasts, with a paid subscription tier.",
-    metric: "0 → 30K MAU",
-    sub: "50K monthly visitors in 6 months · paid Prime tier",
-  },
-  {
     slug: "3gpp-rag",
     title: "Telecom Standards Assistant: 3GPP RAG",
     kicker: "AI · 0→1 · Production",
     summary:
-      "A retrieval assistant over 37 3GPP specs that turns hours of manual spec hunting into seconds, with citations on every answer.",
-    metric: "43,121 chunks indexed",
-    sub: "37 specs · 100% context precision · $0 per query",
+      "A retrieval assistant over 37 3GPP specs that turns hours of manual spec hunting into seconds, with citations on every answer. 25+ users in its first three months.",
+    metric: "25+ users in 3 months",
+    sub: "37 specs · 43,121 chunks · $0 per query",
+  },
+  {
+    slug: "ttc-5g",
+    title: "TTC 5G Subway Launch",
+    kicker: "Telecom · 5G · Award-winning",
+    summary:
+      "Brought 5G to the Toronto subway, 85 stations and 15 km of tunnels, on a federal deadline, accommodating Bell and Telus on one shared network via MOCN.",
+    metric: "Ted Rogers Award 2024",
+    sub: "Innovation in 5G deployment · delivered ahead of deadline",
   },
   {
     slug: "taylor-swift",
@@ -40,24 +40,6 @@ export const WORKS = [
     sub: "Single-event data record on Rogers 5G + LTE",
   },
   {
-    slug: "ttc-5g",
-    title: "TTC 5G Subway Launch",
-    kicker: "Telecom · 5G · Award-winning",
-    summary:
-      "Brought 5G to the Toronto subway, 85 stations and 15 km of tunnels, on a federal deadline, with three carriers sharing one network via MOCN.",
-    metric: "Ted Rogers Award 2024",
-    sub: "Innovation in 5G deployment · delivered ahead of deadline",
-  },
-  {
-    slug: "manitoba",
-    title: "Manitoba MOCN → MORAN Decoupling",
-    kicker: "Program Strategy · Cross-carrier",
-    summary:
-      "Exited a shared-network arrangement with another carrier on a two-year regulatory clock, working inside a four-month outdoor build season.",
-    metric: "On time, on budget",
-    sub: "Brandon cluster green in program review",
-  },
-  {
     slug: "insights-stocks",
     title: "Insights Stocks: Smart Money Signals",
     kicker: "0→1 Side Build · ML",
@@ -65,6 +47,15 @@ export const WORKS = [
       "A trade-signal platform that ingests insider and congressional disclosures and pushes scored calls to a real-time dashboard and Slack.",
     metric: "9 quant models",
     sub: "FDR control · 4-model agreement gate · Granger validation",
+  },
+  {
+    slug: "madrid-betar",
+    title: "Madrid Betar: Real Madrid Fan Platform",
+    kicker: "Startup · 0→1 · Founder",
+    summary:
+      "Co-founded a Real Madrid fan-media startup and grew it from zero to 30,000 monthly active users across web and podcasts, with a paid subscription tier.",
+    metric: "0 → 30K MAU",
+    sub: "50K monthly visitors in 6 months · paid Prime tier",
   },
   {
     slug: "football-intelligently",

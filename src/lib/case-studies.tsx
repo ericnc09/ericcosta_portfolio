@@ -55,6 +55,40 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
           </Prose>
         </CaseSection>
 
+        <CaseSection label="The data" title="What the audience actually engaged with.">
+          <Prose>
+            <p>
+              I ran the page on its analytics, not on instinct. A few patterns from the Facebook
+              Page insights shaped editorial:
+            </p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Reach skewed to discovery.</strong> <strong>60.6%</strong> of views came
+                from <strong>non-followers</strong> versus 39.4% from followers, so the content was
+                traveling well beyond our existing base, not just preaching to the choir.
+              </li>
+              <li>
+                <strong>Format decided everything.</strong> Photos drove <strong>89.1%</strong> of
+                all views, far ahead of links (4.4%), text (4.2%), reels (1.8%), and multi-photo
+                posts (0.5%).
+              </li>
+              <li>
+                <strong>Peaks near 40,000 views</strong> in a reporting window across the December
+                to March span, with a clear upward trajectory.
+              </li>
+            </ul>
+            <p>
+              The read was straightforward: lead with photo posts, write headlines and captions for
+              shareability, and optimize for the non-follower discovery surface rather than just
+              feeding the followers we already had.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Source: Madrid Betar Facebook Page insights (views by content type and followers vs
+              non-followers).
+            </p>
+          </Prose>
+        </CaseSection>
+
         <CaseSection label="Monetization" title="Madrid Betar Prime: the free-to-paid funnel.">
           <Prose>
             <p>
@@ -95,98 +129,75 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     hero: [
       { value: "37", label: "Specs indexed" },
       { value: "43,121", label: "Chunks indexed" },
-      { value: "100%", label: "Context precision" },
+      { value: "25+", label: "Users in first 3 months" },
       { value: "$0", label: "Cost per query" },
     ],
     body: (
       <>
-        <CaseSection label="Challenge" title="Engineers were losing hours to spec hunts.">
+        <CaseSection label="Problem" title="Engineers were losing hours to spec hunts.">
           <Prose>
             <p>
-              During 5G deployments at Rogers, I watched engineers spend hours searching dense 3GPP
-              specifications to answer basic architecture questions. A single query could mean
-              skimming hundreds of pages across multiple documents (TS 38.300 plus 38.401 plus
-              23.501), all written for compliance rather than for reading. Keyword search in PDFs
-              has low recall on conceptual questions, and generic web search returns outdated blog
-              posts.
-            </p>
-            <p>
-              I wanted a conversational interface that grounded every answer in the spec text
-              itself, with citations, so an engineer could trust it inside a time-sensitive change
-              window.
+              During 5G deployments at Rogers, I watched engineers spend hours digging through dense
+              3GPP specifications to answer basic architecture questions. A single query could span
+              hundreds of pages across multiple documents (TS 38.300 plus 38.401 plus 23.501), all
+              written for compliance rather than for reading. Keyword search in PDFs has low recall
+              on conceptual questions, and standards work needs citations an engineer can trust
+              inside a time-sensitive change window.
             </p>
           </Prose>
         </CaseSection>
 
-        <CaseSection label="Research" title="RAG over fine-tuning, and the right small model.">
-          <Prose>
-            <p>
-              I chose retrieval-augmented generation over fine-tuning for three reasons: specs
-              change every 3GPP release cycle (RAG re-indexes instantly), no labelled 3GPP Q&A pairs
-              exist publicly, and standards work demands citations and traceability.
-            </p>
-            <p>
-              I benchmarked embedding models and selected <strong>BAAI bge-small-en-v1.5</strong>{" "}
-              for the best accuracy-to-size ratio on technical text, with bge-base available for
-              maximum accuracy. Chunking is sentence-boundary aware at 1,000 characters with
-              200-character overlap, plus 3GPP-specific header and footer stripping and table
-              extraction. The work is structured around six documented user personas, from core
-              telecom engineer to a grad student who cannot afford API subscriptions, each with
-              explicit acceptance criteria.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Architecture" title="Local first, modular, citation-driven.">
-          <Prose>
-            <p>
-              The pipeline runs fully local: ChromaDB persists the vector index,
-              sentence-transformers generates embeddings, and Ollama serves the LLM (llama3.2 by
-              default) with no API keys and zero cost per query. A FastAPI backend exposes query,
-              streaming, history, health, catalog, and eval endpoints; a Streamlit UI provides the
-              chat surface with domain and generation filters.
-            </p>
-            <p>
-              Every layer is independently testable and swappable, answers stream token by token,
-              and metadata (domain, generation, spec number) is stored per chunk so a query can be
-              scoped to, say, 5G RAN only. The public Streamlit demo swaps the local model for a
-              hosted LLM so anyone can try it in the browser.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Shipping" title="The hardest part wasn't the AI.">
-          <Prose>
-            <p>
-              Between "demo works on my laptop" and "here's a public link" lived a security review
-              that surfaced <strong>42 vulnerabilities</strong>: rate-limiting gaps,
-              prompt-injection vectors, SSRF, session handling, and missing security headers. Two
-              rounds of hardening later, the tool cleared review and shipped to a public URL with a
-              legal disclaimer and source-text truncation that respects 3GPP's IP rules. I wrote
-              that gap up on Substack.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Results" title="Measured, not vibed.">
+        <CaseSection label="User stories" title="Who it's for, and what 'done' means.">
           <Prose>
             <ul className="list-disc space-y-2 pl-5">
               <li>
-                <strong>37 specs, 43,121 chunks</strong> indexed across 5G NR RAN, LTE RAN, 5G Core,
-                and LTE Core.
+                <strong>5G RAN engineer:</strong> ask in plain English, get a cited answer in
+                seconds, and resolve implementation questions in minutes instead of hours.
               </li>
               <li>
-                <strong>100% context precision</strong>, <strong>80% context recall</strong>, and{" "}
-                <strong>50ms p50</strong> retrieve latency on a held-out evaluation set.
+                <strong>Standards researcher:</strong> query across releases at once to track how a
+                feature evolved across spec versions.
               </li>
               <li>
-                <strong>152 unit tests</strong>, fully mocked, running without any live services.
+                <strong>New engineer:</strong> ask the "dumb questions" about 5G architecture
+                without blocking a senior, in a multi-turn chat that remembers context.
               </li>
               <li>
-                <strong>$0 cost per query</strong>: the entire pipeline runs locally, deployable via
-                Docker Compose.
+                <strong>Grad student:</strong> use it for research with no API subscription, because
+                the whole thing runs free and local.
               </li>
             </ul>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Features" title="What shipped.">
+          <Prose>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>Semantic search with a source citation and similarity score on every answer.</li>
+              <li>
+                Domain and generation filters (5G/LTE, RAN/Core) to scope a query to the right spec
+                subset.
+              </li>
+              <li>Token-by-token streaming and multi-turn conversation memory.</li>
+              <li>
+                <strong>37 specs, 43,121 chunks</strong>, fully local on ChromaDB + Ollama at{" "}
+                <strong>$0 per query</strong>.
+              </li>
+              <li>A public Streamlit demo so anyone can try it in the browser.</li>
+            </ul>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Usage" title="Real users, measured quality.">
+          <Prose>
+            <p>
+              The public demo reached <strong>25+ users in its first three months</strong>. On a
+              held-out evaluation set it scores <strong>100% context precision</strong>,{" "}
+              <strong>80% context recall</strong>, and ~<strong>50ms p50</strong> retrieve latency,
+              backed by 152 fully-mocked unit tests. Getting it public also meant clearing two
+              security-hardening rounds (<strong>42 findings</strong>: rate-limiting gaps, prompt
+              injection, SSRF, missing headers), which I wrote up on Substack.
+            </p>
           </Prose>
         </CaseSection>
       </>
@@ -364,16 +375,18 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
             loading="lazy"
           />
           <figcaption className="mt-2 text-xs text-muted-foreground">
-            On site during the overnight TTC integration windows.
+            Working on the ground to ensure the federal deadline was met.
           </figcaption>
         </figure>
         <CaseSection label="Context" title="A federal deadline to connect the subway.">
           <Prose>
             <p>
               Toronto's subway was one of the last major transit systems in North America without
-              reliable cellular service underground. A federal regulatory deadline required the
-              carriers to deliver coverage across the TTC, with riders expecting not just calls and
-              texts but 5G, and 911 access in the tunnels as a safety baseline.
+              reliable cellular service underground. Rogers operated the TTC's connectivity network,
+              and a federal mandate required that it carry not just its own customers but{" "}
+              <strong>Bell's and Telus's too</strong>, so every rider on every carrier gets 5G and
+              911 access in the tunnels as a safety baseline, all against a hard government
+              deadline.
             </p>
           </Prose>
         </CaseSection>
@@ -415,72 +428,24 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         </CaseSection>
       </>
     ),
-  },
-
-  manitoba: {
-    slug: "manitoba",
-    kicker: "Program Strategy · Cross-carrier",
-    title: "Manitoba MOCN → MORAN Decoupling",
-    subtitle:
-      "Exited a shared-network arrangement with another carrier on a two-year regulatory clock, working inside a four-month outdoor build season.",
-    meta: [
-      { label: "Role", value: "In-building program owner" },
-      { label: "Counterparty", value: "Another carrier" },
-      { label: "Constraint", value: "2-yr deadline · 4-mo build season" },
-      { label: "Outcome", value: "On time, on budget, green status" },
+    links: [
+      {
+        label: "Rogers: 5G and 911 calling come to the TTC subway",
+        href: "https://about.rogers.com/news-ideas/rogers-steps-up-to-bring-5g-full-services-to-ttc-subway-including-911-calling/",
+      },
+      {
+        label: "Rogers: 5G live at every TTC subway station",
+        href: "https://about.rogers.com/news-ideas/rogers-turns-on-5g-service-for-its-customers-at-all-ttc-subway-stations/",
+      },
+      {
+        label: "CTV News: cell service reaches the remaining stations",
+        href: "https://www.ctvnews.ca/toronto/article/rogers-turns-on-cell-service-at-remaining-ttc-subway-stations-for-its-own-customers/",
+      },
+      {
+        label: "City of Toronto: TTC connectivity report",
+        href: "https://www.toronto.ca/legdocs/mmis/2025/ttc/bgrd/backgroundfile-256307.pdf",
+      },
     ],
-    hero: [
-      { value: "2 yrs", label: "Regulatory clock" },
-      { value: "4 mo", label: "Build season / year" },
-      { value: "Green", label: "Program review status" },
-      { value: "On budget", label: "Capex variance" },
-    ],
-    body: (
-      <>
-        <CaseSection label="Problem" title="A breakup with a clock attached.">
-          <Prose>
-            <p>
-              Another carrier and Rogers had been sharing a Multi-Operator Core Network (MOCN)
-              across parts of Manitoba. The decision came down to decouple, fully exiting shared
-              infrastructure, within a two-year window. Manitoba adds two complications: an outdoor
-              build season of roughly four months, and a cross-carrier coordination burden that no
-              internal team alone can solve.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Strategy" title="MORAN as the path of least resistance.">
-          <Prose>
-            <p>
-              I chose MORAN (Multi-Operator RAN) as the intermediate architecture rather than a full
-              hard split. MORAN let both carriers keep shared radios while separating cores: a
-              smaller engineering surface, a shorter timeline, and a cleaner regulatory story. The
-              trade-off was an extra coordination layer, which I owned.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Operating model" title="Cadence does the heavy lifting.">
-          <Prose>
-            <p>
-              I ran weekly working syncs with the other carrier's program lead and monthly program
-              reviews with both carriers' engineering and ops teams. Continuous discovery sessions
-              surfaced what was actually blocking each cluster, instead of guessing from the plan.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Sequencing" title="Year 1 transport, Year 2 baseband.">
-          <Prose>
-            <p>
-              I sequenced the build to land transport infrastructure in the first outdoor season and
-              baseband and radio work in the second. Brandon, the largest cluster, delivered on time
-              and stayed green in program review, with capex landing as forecast.
-            </p>
-          </Prose>
-        </CaseSection>
-      </>
-    ),
   },
 
   "insights-stocks": {
@@ -503,37 +468,56 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     ],
     body: (
       <>
-        <CaseSection label="Premise" title="Most signal tools confuse you with confidence.">
+        <CaseSection label="Problem" title="Most signal tools confuse you with confidence.">
           <Prose>
             <p>
               Retail trade-signal apps tend to be one of two things: a wrapper around a single model
-              with a confident UI, or a firehose of indicators you have to interpret yourself. I
-              wanted a third thing, an ensemble that is honest about uncertainty and only fires when
-              several independent models agree.
+              with a confident UI, or a firehose of indicators you have to interpret yourself. Both
+              quietly leak survivorship and selection bias, and the raw inputs, insider and
+              congressional buys, are noisy on their own. I wanted a third thing: an ensemble that
+              is honest about uncertainty and only fires when several independent models agree.
             </p>
           </Prose>
         </CaseSection>
 
-        <CaseSection label="Pipeline" title="Ingest, enrich, model, score, alert.">
+        <CaseSection label="User stories" title="Who it's for.">
+          <Prose>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                <strong>Self-directed investor:</strong> give me a short, vetted shortlist with a
+                single score I can act on, not a 50-row table I have to decode.
+              </li>
+              <li>
+                <strong>Smart-money follower:</strong> tell me when insiders and Congress are
+                actually buying something worth attention, and ping me on Slack when conviction is
+                high.
+              </li>
+              <li>
+                <strong>Quant-curious analyst:</strong> let me drill into every model's output and a
+                backtest, so I can see why a call fired before I trust it.
+              </li>
+            </ul>
+          </Prose>
+        </CaseSection>
+
+        <CaseSection label="Solution" title="Ingest, enrich, model, score, alert.">
           <Prose>
             <p>
               The platform pulls insider trades from SEC EDGAR Form 4 filings and congressional
               disclosures from Capitol Trades over a rolling 14-day window, deduplicates them, and
               enriches each ticker with fundamentals via yfinance (P/E, market cap, momentum, RSI,
-              drawdown). It layers in macro context from FRED, the yield curve, CPI, VIX, M2,
-              classifying the regime as expansion, transition, or recession.
-            </p>
-            <p>
-              Each ticker then runs through <strong>nine quantitative models</strong>: Monte Carlo
-              (10,000-path), Hidden Markov regime detection, GARCH volatility, the Fama-French
-              5-factor model, an event study with cumulative abnormal returns, a Student-t copula
-              tail-risk model, Bayesian signal decay, mean-variance optimization, and options-flow
-              analysis. An ensemble combines them into a single 0-100 score with a recommendation.
+              drawdown) plus a macro regime read from FRED (yield curve, CPI, VIX, M2). Each ticker
+              then runs through <strong>nine quantitative models</strong>, Monte Carlo, Hidden
+              Markov regime, GARCH, Fama-French 5-factor, event study, copula tail risk, Bayesian
+              decay, mean-variance, and options flow, which an ensemble combines into a single 0-100
+              score and recommendation. An 18-route FastAPI backend feeds a React dashboard and
+              posts high-conviction calls to Slack: a message a real person can act on, not a 50-row
+              table.
             </p>
           </Prose>
         </CaseSection>
 
-        <CaseSection label="The PM bit" title="False-positive control is the product.">
+        <CaseSection label="Product sense" title="False-positive control is the product.">
           <Prose>
             <p>
               What separates this from a typical ML side build is the layer that decides when{" "}
@@ -546,45 +530,21 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
               </li>
               <li>
                 <strong>4-of-9 agreement gate</strong>: at least four models must independently
-                concur before a buy or sell is issued, which removes roughly 30% of spurious
-                signals.
+                concur before a buy or sell is issued, removing roughly 30% of spurious signals.
               </li>
               <li>
-                <strong>Granger causality</strong> to confirm a source actually predicts returns,
-                plus <strong>conformal prediction intervals</strong> and{" "}
-                <strong>adversarial validation</strong> for distribution shift.
+                <strong>Granger causality</strong>, <strong>conformal prediction intervals</strong>,
+                and <strong>adversarial validation</strong> to confirm a source predicts returns and
+                to catch distribution shift.
               </li>
               <li>
-                <strong>Deflated Sharpe ratio</strong>, isotonic calibration, rolling IC/ICIR
-                monitoring, and structural-break detection to keep the backtest honest.
+                <strong>Deflated Sharpe ratio</strong> and isotonic calibration to keep the backtest
+                honest.
               </li>
             </ul>
             <p>
-              Conviction scoring then blends signal strength, fundamental quality, and a regime
-              modifier into a 0-1 score with a threshold that adapts to volatility.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Surfaces" title="A signal a person can act on with coffee.">
-          <Prose>
-            <p>
-              An 18-route FastAPI backend feeds a React dashboard, sortable signal table, macro
-              regime gauge, mean-variance efficient frontier, a backtest engine with an equity
-              curve, and a per-ticker drill-down showing every model's output. High-conviction calls
-              also post to Slack. The output is a message a real person can act on, not a 50-row
-              table.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Why it's here" title="PM rigor, applied to my own product.">
-          <Prose>
-            <p>
-              Insider-trade signal platforms are a crowded space, and most of them quietly leak
-              survivorship and selection bias. The reason I am proud of this build is not the model
-              count, it is that the guardrails were a product decision before they were a math
-              decision.
+              The reason I'm proud of this build isn't the model count. It's that the guardrails
+              were a product decision before they were a math decision.
             </p>
           </Prose>
         </CaseSection>

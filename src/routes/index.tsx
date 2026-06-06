@@ -28,27 +28,40 @@ function Index() {
     <div>
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-16 md:pt-28 md:pb-24">
-        <SectionLabel>Product Manager · Toronto</SectionLabel>
-        <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
-          I build AI products, both as an employee and a founder.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-          PM at Rogers Communications. Six years across Canadian telecom delivery, now owning a $35M
-          in-building portfolio, one production RAG system, and three product-grade side builds.
-        </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a
-            href="#work"
-            className="rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:opacity-90"
-          >
-            See selected work
-          </a>
-          <Link
-            to="/about"
-            className="rounded-md border border-border px-5 py-2.5 text-sm font-medium hover:bg-secondary"
-          >
-            About me
-          </Link>
+        <div className="grid items-center gap-10 md:grid-cols-3 md:gap-12">
+          <div className="md:col-span-2">
+            <SectionLabel>Product Manager · Toronto</SectionLabel>
+            <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
+              I build AI products, both as an employee and a founder.
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
+              PM at Rogers Communications. Six years across Canadian telecom delivery, now owning a
+              $35M in-building portfolio, one production RAG system, and three product-grade side
+              builds.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href="#work"
+                className="rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:opacity-90"
+              >
+                See selected work
+              </a>
+              <Link
+                to="/about"
+                className="rounded-md border border-border px-5 py-2.5 text-sm font-medium hover:bg-secondary"
+              >
+                About me
+              </Link>
+            </div>
+          </div>
+          <div className="md:col-span-1">
+            <img
+              src={SITE.headshot}
+              alt="Portrait of Eric Costa"
+              className="mx-auto aspect-[4/5] w-full max-w-[260px] rounded-lg border border-border object-cover md:max-w-none"
+              loading="eager"
+            />
+          </div>
         </div>
       </section>
 
