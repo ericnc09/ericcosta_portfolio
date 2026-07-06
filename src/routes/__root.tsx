@@ -154,6 +154,12 @@ function RootComponent() {
 }
 
 function SiteLayout({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // The finAlyse case study is a standalone microsite with its own nav + footer.
+  const standalone = pathname.startsWith("/insights/stocks/smart-money-signals");
+
+  if (standalone) return <>{children}</>;
+
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />

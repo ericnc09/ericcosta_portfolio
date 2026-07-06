@@ -14,7 +14,7 @@ export const SITE = {
 export const WORKS = [
   {
     slug: "3gpp-rag",
-    title: "Telecom Standards Assistant: 3GPP RAG",
+    title: "AI-Powered Wiki - Telecom RAG",
     kicker: "AI · 0→1 · Production",
     summary:
       "A retrieval assistant over 37 3GPP specs that turns hours of manual spec hunting into seconds, with citations on every answer. 25+ users in its first three months.",
@@ -23,12 +23,21 @@ export const WORKS = [
   },
   {
     slug: "ttc-5g",
-    title: "TTC 5G Subway Launch",
+    title: "5G in Toronto Subway",
     kicker: "Telecom · 5G · Award-winning",
     summary:
       "Brought 5G to the Toronto subway, 85 stations and 15 km of tunnels, on a federal deadline, accommodating Bell and Telus on one shared network via MOCN.",
     metric: "Ted Rogers Award 2024",
     sub: "Innovation in 5G deployment · delivered ahead of deadline",
+  },
+  {
+    slug: "insights-stocks",
+    title: "finAlyse: AI-assisted Stock Picker",
+    kicker: "0 to 1 AI Product Build",
+    summary:
+      "A trade-signal platform that ingests insider and congressional disclosures and pushes scored calls to a real-time dashboard and Slack.",
+    metric: "9 quant models",
+    sub: "FDR control · 4-model agreement gate · Granger validation",
   },
   {
     slug: "taylor-swift",
@@ -38,15 +47,6 @@ export const WORKS = [
       "First under-seat DOT deployment in Canada: 256 units across Rogers Centre and BC Place, delivered three days before showtime.",
     metric: "7.4 TB in one night",
     sub: "Single-event data record on Rogers 5G + LTE",
-  },
-  {
-    slug: "insights-stocks",
-    title: "Insights Stocks: Smart Money Signals",
-    kicker: "0→1 Side Build · ML",
-    summary:
-      "A trade-signal platform that ingests insider and congressional disclosures and pushes scored calls to a real-time dashboard and Slack.",
-    metric: "9 quant models",
-    sub: "FDR control · 4-model agreement gate · Granger validation",
   },
   {
     slug: "madrid-betar",

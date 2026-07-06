@@ -13,6 +13,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
+import { Route as InsightsStocksSmartMoneySignalsRouteImport } from './routes/insights.stocks.smart-money-signals'
 
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
@@ -34,18 +35,26 @@ const WorkSlugRoute = WorkSlugRouteImport.update({
   path: '/work/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsStocksSmartMoneySignalsRoute =
+  InsightsStocksSmartMoneySignalsRouteImport.update({
+    id: '/insights/stocks/smart-money-signals',
+    path: '/insights/stocks/smart-money-signals',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +62,30 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/work/$slug'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work/$slug'
+    | '/insights/stocks/smart-money-signals'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/work/$slug'
-  id: '__root__' | '/' | '/about' | '/contact' | '/work/$slug'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work/$slug'
+    | '/insights/stocks/smart-money-signals'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work/$slug'
+    | '/insights/stocks/smart-money-signals'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +93,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   WorkSlugRoute: typeof WorkSlugRoute
+  InsightsStocksSmartMoneySignalsRoute: typeof InsightsStocksSmartMoneySignalsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/stocks/smart-money-signals': {
+      id: '/insights/stocks/smart-money-signals'
+      path: '/insights/stocks/smart-money-signals'
+      fullPath: '/insights/stocks/smart-money-signals'
+      preLoaderRoute: typeof InsightsStocksSmartMoneySignalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +141,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   WorkSlugRoute: WorkSlugRoute,
+  InsightsStocksSmartMoneySignalsRoute: InsightsStocksSmartMoneySignalsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

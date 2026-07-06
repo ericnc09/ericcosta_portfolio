@@ -90,29 +90,42 @@ function Index() {
           </p>
         </div>
         <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
-          {WORKS.map((w) => (
-            <Link
-              key={w.slug}
-              to="/work/$slug"
-              params={{ slug: w.slug }}
-              className="group flex flex-col justify-between gap-8 bg-background p-8 transition-colors hover:bg-secondary/50"
-            >
-              <div>
-                <Pill>{w.kicker}</Pill>
-                <h3 className="mt-5 font-serif text-2xl">{w.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{w.summary}</p>
-              </div>
-              <div className="flex items-end justify-between border-t border-border pt-5">
+          {WORKS.map((w) => {
+            // insights-stocks links to its dedicated finAlyse microsite; the rest use the case-study route.
+            const isFinalyse = w.slug === "insights-stocks";
+            const wide = isFinalyse || w.slug === "football-intelligently";
+            const className = `group flex flex-col justify-between gap-8 bg-background p-8 transition-colors hover:bg-secondary/50 ${
+              wide ? "md:col-span-2" : ""
+            }`;
+            const inner = (
+              <>
                 <div>
-                  <p className="font-serif text-2xl tnum">{w.metric}</p>
-                  <p className="text-xs text-muted-foreground">{w.sub}</p>
+                  <Pill>{w.kicker}</Pill>
+                  <h3 className="mt-5 font-serif text-2xl">{w.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{w.summary}</p>
                 </div>
-                <span className="text-xs uppercase tracking-widest text-muted-foreground group-hover:text-[var(--accent-blue)]">
-                  Read →
-                </span>
-              </div>
-            </Link>
-          ))}
+                <div className="flex items-end justify-between border-t border-border pt-5">
+                  <div>
+                    <p className="font-serif text-2xl tnum">{w.metric}</p>
+                    <p className="text-xs text-muted-foreground">{w.sub}</p>
+                  </div>
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground group-hover:text-[var(--accent-blue)]">
+                    Read →
+                  </span>
+                </div>
+              </>
+            );
+
+            return isFinalyse ? (
+              <Link key={w.slug} to="/insights/stocks/smart-money-signals" className={className}>
+                {inner}
+              </Link>
+            ) : (
+              <Link key={w.slug} to="/work/$slug" params={{ slug: w.slug }} className={className}>
+                {inner}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
