@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { CaseSection, Prose } from "@/components/site/primitives";
+import { FINALYSE_DEMO_URL } from "@/lib/site";
 
 export type CaseStudy = {
   slug: string;
@@ -450,107 +451,99 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
 
   "insights-stocks": {
     slug: "insights-stocks",
-    kicker: "0 → 1 Side Build · ML",
-    title: "Insights Stocks: Smart Money Signals",
+    kicker: "Fintech · Independent Product Prototype",
+    title: "finAlyse: Explainable Equity Research",
     subtitle:
-      "An automated trade-signal platform that ingests insider and congressional disclosures, runs nine quant models per ticker, and pushes scored, ranked calls to a React dashboard and Slack.",
+      "A historical research demo for exploring public trading disclosures, supporting evidence, and the limits of experimental models.",
     meta: [
-      { label: "Role", value: "Solo: PM + Engineering" },
+      { label: "Role", value: "Independent project owner" },
       { label: "Stack", value: "Python / FastAPI · React / TypeScript" },
-      { label: "Models", value: "9 quant + institutional bias controls" },
-      { label: "Status", value: "Production, private beta" },
+      { label: "Focus", value: "Scope, evidence, and research UX" },
+      { label: "Status", value: "Historical research prototype" },
     ],
     hero: [
-      { value: "9", label: "Quant models ensembled" },
-      { value: "4 / 9", label: "Model-agreement gate" },
-      { value: "BH-FDR", label: "False-discovery control" },
-      { value: "18", label: "API routes" },
+      { value: "3", label: "Steps in the research journey" },
+      { value: "202", label: "Events in the saved research audit" },
+      { value: "3 / 7", label: "Reported validation gates passing" },
+      { value: "Jun 2026", label: "Historical data boundary" },
     ],
     body: (
       <>
-        <CaseSection label="Problem" title="Most signal tools confuse you with confidence.">
+        <CaseSection
+          label="Product hypothesis"
+          title="Help a reader form a better research question."
+        >
           <Prose>
             <p>
-              Retail trade-signal apps tend to be one of two things: a wrapper around a single model
-              with a confident UI, or a firehose of indicators you have to interpret yourself. Both
-              quietly leak survivorship and selection bias, and the raw inputs, insider and
-              congressional buys, are noisy on their own. I wanted a third thing: an ensemble that
-              is honest about uncertainty and only fires when several independent models agree.
+              I am testing whether bringing disclosure timing, sources, and available model context
+              together helps people interpret public trading disclosures. The proposed audience is
+              self-directed investors who already research individual stocks. That audience and need
+              have not yet been validated through user research.
+            </p>
+            <p>
+              The demo focuses on finding a disclosure, inspecting its evidence, and identifying
+              unanswered questions. Examples are selected for data coverage, including incomplete
+              cases. Their inclusion is not a claim of superior investment performance.
+            </p>
+            <p>
+              <a href="/insights/stocks/smart-money-signals">
+                Read the full finAlyse product case study
+              </a>{" "}
+              for the workflow and the decisions behind it.
             </p>
           </Prose>
         </CaseSection>
-
-        <CaseSection label="User stories" title="Who it's for.">
+        <CaseSection label="MVP decisions" title="Make the evidence inspectable.">
           <Prose>
             <ul className="list-disc space-y-2 pl-5">
               <li>
-                <strong>Self-directed investor:</strong> give me a short, vetted shortlist with a
-                single score I can act on, not a 50-row table I have to decode.
+                <strong>Source and timing:</strong> show original dates and available provenance
+                beside the research.
               </li>
               <li>
-                <strong>Smart-money follower:</strong> tell me when insiders and Congress are
-                actually buying something worth attention, and ping me on Slack when conviction is
-                high.
+                <strong>Experimental models:</strong> distinguish available model coverage from
+                predictive confidence and label missing information.
               </li>
               <li>
-                <strong>Quant-curious analyst:</strong> let me drill into every model's output and a
-                backtest, so I can see why a call fired before I trust it.
-              </li>
-            </ul>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Solution" title="Ingest, enrich, model, score, alert.">
-          <Prose>
-            <p>
-              The platform pulls insider trades from SEC EDGAR Form 4 filings and congressional
-              disclosures from Capitol Trades over a rolling 14-day window, deduplicates them, and
-              enriches each ticker with fundamentals via yfinance (P/E, market cap, momentum, RSI,
-              drawdown) plus a macro regime read from FRED (yield curve, CPI, VIX, M2). Each ticker
-              then runs through <strong>nine quantitative models</strong>, Monte Carlo, Hidden
-              Markov regime, GARCH, Fama-French 5-factor, event study, copula tail risk, Bayesian
-              decay, mean-variance, and options flow, which an ensemble combines into a single 0-100
-              score and recommendation. An 18-route FastAPI backend feeds a React dashboard and
-              posts high-conviction calls to Slack: a message a real person can act on, not a 50-row
-              table.
-            </p>
-          </Prose>
-        </CaseSection>
-
-        <CaseSection label="Product sense" title="False-positive control is the product.">
-          <Prose>
-            <p>
-              What separates this from a typical ML side build is the layer that decides when{" "}
-              <em>not</em> to fire a signal:
-            </p>
-            <ul className="list-disc space-y-2 pl-5">
-              <li>
-                <strong>Benjamini-Hochberg FDR correction</strong> across the full ticker universe,
-                so the more you test the harder it is to claim a hit.
-              </li>
-              <li>
-                <strong>4-of-9 agreement gate</strong>: at least four models must independently
-                concur before a buy or sell is issued, removing roughly 30% of spurious signals.
-              </li>
-              <li>
-                <strong>Granger causality</strong>, <strong>conformal prediction intervals</strong>,
-                and <strong>adversarial validation</strong> to confirm a source predicts returns and
-                to catch distribution shift.
-              </li>
-              <li>
-                <strong>Deflated Sharpe ratio</strong> and isotonic calibration to keep the backtest
-                honest.
+                <strong>Dependable first visit:</strong> bundle reviewed historical data with the
+                interface, so core exploration does not depend on live providers.
               </li>
             </ul>
             <p>
-              The reason I'm proud of this build isn't the model count. It's that the guardrails
-              were a product decision before they were a math decision.
+              Fresh data and custom server-side analysis are deferred until research with users
+              justifies those priorities. This is an independent project by Eric Costa; the
+              September 2026 review and demo implementation use Codex assistance.
+            </p>
+          </Prose>
+        </CaseSection>
+        <CaseSection label="Evidence and next step" title="Keep unproven outcomes explicit.">
+          <Prose>
+            <p>
+              The June 22, 2026 research audit contains 202 events and reports three of seven
+              validation gates passing, with an untrained XGBoost artifact. It covers the full
+              research database, while the demo uses a selected subset. Historical evaluation has
+              unresolved methodology issues; these numbers do not establish investment
+              effectiveness.
+            </p>
+            <p>
+              The next experiment is five to eight task-based sessions, measuring whether a reader
+              can identify the actor, transaction direction, disclosure timing, source, and
+              limitations without assistance. Usability, adoption, and investment outcomes have not
+              been established.
             </p>
           </Prose>
         </CaseSection>
       </>
     ),
-    links: [{ label: "GitHub", href: "https://github.com/ericnc09/financial-planner" }],
+    links: [
+      { label: "Run the demo locally", href: FINALYSE_DEMO_URL },
+      { label: "Full case study", href: "/insights/stocks/smart-money-signals" },
+      { label: "GitHub", href: "https://github.com/ericnc09/financial-planner" },
+      {
+        label: "Saved research audit",
+        href: "https://github.com/ericnc09/financial-planner/blob/main/reports/model_status_report.json",
+      },
+    ],
   },
 
   "football-intelligently": {

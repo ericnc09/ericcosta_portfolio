@@ -11,6 +11,10 @@ export const SITE = {
   headshot: "/eric-headshot.jpg",
 };
 
+// Replace with the verified deployment URL before publishing the finAlyse pages.
+export const FINALYSE_DEMO_URL =
+  "https://github.com/ericnc09/financial-planner/tree/codex/fintech-demo#try-the-demo-locally";
+
 export const WORKS = [
   {
     slug: "3gpp-rag",
@@ -32,12 +36,12 @@ export const WORKS = [
   },
   {
     slug: "insights-stocks",
-    title: "finAlyse: AI-assisted Stock Picker",
-    kicker: "0 to 1 AI Product Build",
+    title: "finAlyse: Explainable Equity Research",
+    kicker: "Fintech · Product Prototype",
     summary:
-      "A trade-signal platform that ingests insider and congressional disclosures and pushes scored calls to a real-time dashboard and Slack.",
-    metric: "9 quant models",
-    sub: "FDR control · 4-model agreement gate · Granger validation",
+      "A historical research demo for exploring public trading disclosures, supporting evidence, and the limits of experimental models.",
+    metric: "Interactive research demo",
+    sub: "Source traceability · Model coverage · Explicit limitations",
   },
   {
     slug: "taylor-swift",
