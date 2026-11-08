@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as FinalyseRouteImport } from './routes/finalyse'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
 import { Route as InsightsStocksSmartMoneySignalsRouteImport } from './routes/insights.stocks.smart-money-signals'
 
+const FinalyseRoute = FinalyseRouteImport.update({
+  id: '/finalyse',
+  path: '/finalyse',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/finalyse': typeof FinalyseRoute
   '/work/$slug': typeof WorkSlugRoute
   '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/finalyse': typeof FinalyseRoute
   '/work/$slug': typeof WorkSlugRoute
   '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
@@ -61,6 +69,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/finalyse': typeof FinalyseRoute
   '/work/$slug': typeof WorkSlugRoute
   '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
@@ -70,6 +79,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/finalyse'
     | '/work/$slug'
     | '/insights/stocks/smart-money-signals'
   fileRoutesByTo: FileRoutesByTo
@@ -77,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/finalyse'
     | '/work/$slug'
     | '/insights/stocks/smart-money-signals'
   id:
@@ -84,6 +95,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/finalyse'
     | '/work/$slug'
     | '/insights/stocks/smart-money-signals'
   fileRoutesById: FileRoutesById
@@ -92,12 +104,20 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  FinalyseRoute: typeof FinalyseRoute
   WorkSlugRoute: typeof WorkSlugRoute
   InsightsStocksSmartMoneySignalsRoute: typeof InsightsStocksSmartMoneySignalsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/finalyse': {
+      id: '/finalyse'
+      path: '/finalyse'
+      fullPath: '/finalyse'
+      preLoaderRoute: typeof FinalyseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -140,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  FinalyseRoute: FinalyseRoute,
   WorkSlugRoute: WorkSlugRoute,
   InsightsStocksSmartMoneySignalsRoute: InsightsStocksSmartMoneySignalsRoute,
 }
