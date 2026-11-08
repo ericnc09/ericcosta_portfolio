@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { MetricStat, Pill, SectionLabel } from "@/components/site/primitives";
+import { requestBetaAccess, type BetaSignupResult } from "@/lib/api/beta.functions";
 
 const DATA_BASE = "https://raw.githubusercontent.com/ericnc09/financial-planner/digests";
 const PAGE_SIZE = 50;
@@ -113,6 +114,8 @@ function Finalyse() {
         largest purchases.
       </p>
 
+      <BetaSignup />
+
       {status === "loading" && (
         <p role="status" className="mt-16 text-sm text-muted-foreground">
           Loading disclosures…
@@ -134,6 +137,100 @@ function Finalyse() {
         unreliable.
       </p>
     </div>
+  );
+}
+
+const SIGNUP_MESSAGES: Record<BetaSignupResult, string> = {
+  requested:
+    "Thanks. Check your inbox to confirm your email. Beta spots are approved by hand, and the daily email starts once you're approved.",
+  unavailable: "Beta signups aren't open yet. Please check back soon.",
+  failed: "That didn't go through. Please check your email address and try again.",
+};
+
+function BetaSignup() {
+  const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [website, setWebsite] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [result, setResult] = useState<BetaSignupResult | null>(null);
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    setSubmitting(true);
+    try {
+      setResult(await requestBetaAccess({ data: { email, consent: true, website } }));
+    } catch {
+      setResult("failed");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <section aria-labelledby="beta-heading" className="mt-10 rounded-md border border-border p-6">
+      <h2 id="beta-heading" className="font-serif text-2xl">
+        Get the top 10 by email
+      </h2>
+      <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+        Join the beta for the day's ten most notable trades at 7:30 AM ET on weekdays, with a link
+        here for the rest.
+      </p>
+
+      {result === "requested" ? (
+        <p role="status" className="mt-4 max-w-2xl text-sm">
+          {SIGNUP_MESSAGES.requested}
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="mt-4">
+          <div className="flex flex-wrap gap-3">
+            <input
+              type="email"
+              required
+              autoComplete="email"
+              aria-label="Email address"
+              placeholder="you@example.com"
+              className={`${fieldClass} w-full sm:w-72`}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button
+              type="submit"
+              disabled={submitting || !consent}
+              className="h-10 rounded-md bg-foreground px-4 text-sm text-background disabled:opacity-50"
+            >
+              {submitting ? "Sending…" : "Request access"}
+            </button>
+          </div>
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px]"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+          />
+          <label className="mt-3 flex max-w-2xl items-start gap-2 text-xs text-muted-foreground">
+            <input
+              type="checkbox"
+              className="mt-0.5"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+            />
+            <span>
+              I agree to receive a daily email of public trading disclosures from Eric Costa. I can
+              unsubscribe at any time.
+            </span>
+          </label>
+          {result && (
+            <p role="alert" className="mt-3 text-sm">
+              {SIGNUP_MESSAGES[result]}
+            </p>
+          )}
+        </form>
+      )}
+    </section>
   );
 }
 
