@@ -105,7 +105,17 @@ async function askProvider(p: ActiveProvider, system: string, turns: ChatTurn[])
   return text;
 }
 
-export type Attempt = { provider: string; error: string; ms: number };
+// `code` is a short, non-sensitive summary that is safe to return to the client.
+export type Attempt = { provider: string; error: string; code: string; ms: number };
+
+function failureCode(error: unknown) {
+  const text = String(error);
+  const status = text.match(/HTTP (\d{3})/)?.[1];
+  if (status) return `http_${status}`;
+  if (/Timeout|AbortError/i.test(text)) return "timeout";
+  if (/empty answer/.test(text)) return "empty";
+  return "error";
+}
 export type RouteResult =
   | { ok: true; text: string; via: string; attempts: Attempt[] }
   | { ok: false; attempts: Attempt[] };
@@ -122,7 +132,12 @@ export async function routeChat(system: string, turns: ChatTurn[]): Promise<Rout
       );
       return { ok: true, text, via: provider.label, attempts };
     } catch (error) {
-      attempts.push({ provider: provider.id, error: String(error), ms: Date.now() - started });
+      attempts.push({
+        provider: provider.id,
+        error: String(error),
+        code: failureCode(error),
+        ms: Date.now() - started,
+      });
     }
   }
   console.error(

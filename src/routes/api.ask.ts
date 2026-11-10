@@ -65,7 +65,16 @@ export const Route = createFileRoute("/api/ask")({
 
         const result = await routeChat(buildSystemPrompt(), turns);
         if (!result.ok) {
-          return Response.json({ error: "unavailable" }, { status: 503 });
+          // Reason is for debugging only: provider ids and HTTP status codes, no
+          // error bodies, keys or models.
+          return Response.json(
+            {
+              error: "unavailable",
+              reason: result.attempts.length ? "providers_failed" : "no_keys",
+              attempts: result.attempts.map((a) => ({ provider: a.provider, code: a.code })),
+            },
+            { status: 503 },
+          );
         }
         return Response.json({ text: result.text, via: result.via });
       },
