@@ -14,6 +14,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
+import { Route as ApiAskRouteImport } from './routes/api.ask'
 import { Route as InsightsStocksSmartMoneySignalsRouteImport } from './routes/insights.stocks.smart-money-signals'
 
 const FinalyseRoute = FinalyseRouteImport.update({
@@ -41,6 +42,11 @@ const WorkSlugRoute = WorkSlugRouteImport.update({
   path: '/work/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAskRoute = ApiAskRouteImport.update({
+  id: '/api/ask',
+  path: '/api/ask',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsStocksSmartMoneySignalsRoute =
   InsightsStocksSmartMoneySignalsRouteImport.update({
     id: '/insights/stocks/smart-money-signals',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/finalyse': typeof FinalyseRoute
+  '/api/ask': typeof ApiAskRoute
   '/work/$slug': typeof WorkSlugRoute
   '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/finalyse': typeof FinalyseRoute
+  '/api/ask': typeof ApiAskRoute
   '/work/$slug': typeof WorkSlugRoute
   '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/finalyse': typeof FinalyseRoute
+  '/api/ask': typeof ApiAskRoute
   '/work/$slug': typeof WorkSlugRoute
   '/insights/stocks/smart-money-signals': typeof InsightsStocksSmartMoneySignalsRoute
 }
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/finalyse'
+    | '/api/ask'
     | '/work/$slug'
     | '/insights/stocks/smart-money-signals'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/finalyse'
+    | '/api/ask'
     | '/work/$slug'
     | '/insights/stocks/smart-money-signals'
   id:
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/finalyse'
+    | '/api/ask'
     | '/work/$slug'
     | '/insights/stocks/smart-money-signals'
   fileRoutesById: FileRoutesById
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FinalyseRoute: typeof FinalyseRoute
+  ApiAskRoute: typeof ApiAskRoute
   WorkSlugRoute: typeof WorkSlugRoute
   InsightsStocksSmartMoneySignalsRoute: typeof InsightsStocksSmartMoneySignalsRoute
 }
@@ -146,6 +159,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/ask': {
+      id: '/api/ask'
+      path: '/api/ask'
+      fullPath: '/api/ask'
+      preLoaderRoute: typeof ApiAskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/stocks/smart-money-signals': {
       id: '/insights/stocks/smart-money-signals'
       path: '/insights/stocks/smart-money-signals'
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FinalyseRoute: FinalyseRoute,
+  ApiAskRoute: ApiAskRoute,
   WorkSlugRoute: WorkSlugRoute,
   InsightsStocksSmartMoneySignalsRoute: InsightsStocksSmartMoneySignalsRoute,
 }

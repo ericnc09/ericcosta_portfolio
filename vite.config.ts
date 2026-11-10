@@ -5,6 +5,19 @@
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { loadEnv } from "vite";
+
+// Local dev only: Vite exposes just VITE_* vars, so copy the Ask AI server
+// secrets from .env.local into process.env for the dev SSR process. In
+// production these come from Cloudflare Worker secrets instead.
+const askEnv = loadEnv("development", process.cwd(), [
+  "GROQ_",
+  "GEMINI_",
+  "CEREBRAS_",
+  "OPENROUTER_",
+  "ASK_",
+]);
+for (const [key, value] of Object.entries(askEnv)) process.env[key] ??= value;
 
 export default defineConfig({
   tanstackStart: {

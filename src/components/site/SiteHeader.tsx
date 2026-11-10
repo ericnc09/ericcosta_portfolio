@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { AskAI } from "@/components/site/AskAI";
 import { SITE } from "@/lib/site";
 
 const NAV: { to: "/" | "/about" | "/contact"; label: string; exact?: boolean }[] = [
@@ -25,12 +26,13 @@ export function SiteHeader() {
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.exact }}
-              className="rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-md px-2 py-1.5 text-muted-foreground sm:px-3 transition-colors hover:text-foreground"
               activeProps={{ className: "!text-foreground" }}
             >
               {n.label}
             </Link>
           ))}
+          <AskAI />
           <a
             href={SITE.linkedin}
             target="_blank"
