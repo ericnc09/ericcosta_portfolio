@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Get in touch with Eric Costa, Product Manager based in Toronto, TN-visa eligible.",
+          "Get in touch with Eric Costa, technical product manager based in Toronto.",
       },
       { property: "og:title", content: "Contact Eric Costa" },
       { property: "og:description", content: "Email, LinkedIn, GitHub, Substack." },
@@ -32,8 +32,8 @@ function Contact() {
       <SectionLabel>Contact</SectionLabel>
       <h1 className="mt-4 font-serif text-5xl md:text-6xl">Let's talk.</h1>
       <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-        I'm in the Greater Toronto Area, open to PM roles across Canada and the US (TN-visa
-        eligible). Quickest way to reach me is email.
+        I'm in the Greater Toronto Area, open to product roles in Toronto or remote in Canada.
+        Quickest way to reach me is email.
       </p>
 
       <div className="mt-12 divide-y divide-border border-y border-border">

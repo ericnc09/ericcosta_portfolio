@@ -117,12 +117,12 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
 
   "3gpp-rag": {
     slug: "3gpp-rag",
-    kicker: "AI · 0 → 1 · Production",
+    kicker: "AI · Personal project · Public demo",
     title: "Telecom Standards Assistant: 3GPP RAG",
     subtitle:
       "A retrieval assistant that turns hours of manual spec hunting into seconds, grounding every answer in the source text with a citation. 37 specs, 43,121 chunks, runs fully local at zero cost per query.",
     meta: [
-      { label: "Role", value: "Product + Builder" },
+      { label: "Role", value: "Directed with Claude Code (Claude built and tested; Eric approved or rejected changes)" },
       { label: "Timeline", value: "3-week sprint, then multi-spec phases" },
       { label: "Stack", value: "Python · ChromaDB · Ollama · FastAPI · Streamlit" },
       { label: "Outcome", value: "37 specs, 43,121 chunks, public demo" },
@@ -130,7 +130,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     hero: [
       { value: "37", label: "Specs indexed" },
       { value: "43,121", label: "Chunks indexed" },
-      { value: "25+", label: "Users in first 3 months" },
+      { value: "20", label: "People used it at launch" },
       { value: "$0", label: "Cost per query" },
     ],
     body: (
@@ -189,15 +189,15 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
           </Prose>
         </CaseSection>
 
-        <CaseSection label="Usage" title="Real users, measured quality.">
+        <CaseSection label="Usage" title="Who used it, and who built what.">
           <Prose>
             <p>
-              The public demo reached <strong>25+ users in its first three months</strong>. On a
-              held-out evaluation set it scores <strong>100% context precision</strong>,{" "}
-              <strong>80% context recall</strong>, and ~<strong>50ms p50</strong> retrieve latency,
-              backed by 152 fully-mocked unit tests. Getting it public also meant clearing two
-              security-hardening rounds (<strong>42 findings</strong>: rate-limiting gaps, prompt
-              injection, SSRF, missing headers), which I wrote up on Substack.
+              <strong>20 people</strong> used the public demo at launch, including three teammates who
+              tried it voluntarily; use then stopped. I directed the project: Claude, through Claude
+              Code, built and tested it, and I approved or rejected its changes. The public repo
+              includes the retrieval evaluation set Claude built, and an AI-assisted source-code
+              security review implemented <strong>42 fixes</strong> before release. That was a
+              code review by Claude, not an audit.
             </p>
           </Prose>
         </CaseSection>
@@ -222,18 +222,18 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     kicker: "Telecom · Hardware · Capital",
     title: "Taylor Swift Eras Tour: Under-Seat DOT",
     subtitle:
-      "256 units, $400K of capital, a US-to-Canada supply chain, three days before showtime. The Toronto night set a single-event data record on Rogers' network, and Vancouver broke it.",
+      "256 under-seat units inside an $8M Rogers Centre 5G upgrade. The network carried a venue-record 7.4 TB during one Taylor Swift show.",
     meta: [
-      { label: "Role", value: "Owner: trade study, capital, delivery" },
-      { label: "Venues", value: "Rogers Centre · BC Place" },
-      { label: "Capex", value: "$400K (under-seat DOT)" },
-      { label: "Outcome", value: "7.4 TB Toronto, 11+ TB Vancouver" },
+      { label: "Role", value: "Owned system planning and funding allocation for the $8M program" },
+      { label: "Venue", value: "Rogers Centre" },
+      { label: "Capital", value: "$8M program, ~$400K under-seat scope" },
+      { label: "Outcome", value: "7.4 TB during one show (venue record)" },
     ],
     hero: [
       { value: "7.4 TB", label: "Toronto single-event record" },
       { value: "256", label: "Under-seat DOT units" },
-      { value: "3×", label: "Stadium capacity added" },
-      { value: "$400K", label: "Capital allocated" },
+      { value: "$8M", label: "Program planned and funded" },
+      { value: "~$400K", label: "Under-seat scope" },
     ],
     body: (
       <>
@@ -262,15 +262,15 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         <CaseSection label="Decision" title="Ericsson DOT vs Crossfire BTI: a trade study.">
           <Prose>
             <p>
-              I led the trade study comparing Ericsson DOT against Crossfire BTI for under-seat
-              deployment. The decision rested on three axes: thermal behavior in an enclosed seat
+              I guided the engineering teams and a product manager through the trade study comparing
+              Ericsson DOT against Crossfire BTI for under-seat deployment. The decision rested on three axes: thermal behavior in an enclosed seat
               cavity, Safety Code 6 RF exposure compliance with humans{" "}
               <em>literally sitting on top of the radio</em>, and supply-chain certainty inside the
               window.
             </p>
             <p>
-              Ericsson DOT won on compliance and on the thermal envelope. I specced a custom
-              enclosure for the under-seat mount and defended the $400K capex allocation.
+              Ericsson DOT won on compliance and on the thermal envelope. The team redesigned the
+              enclosure for the under-seat mount, and I defended the funding within the $8M program.
             </p>
           </Prose>
         </CaseSection>
@@ -279,8 +279,8 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
           <Prose>
             <p>
               The 256 units shipped from the US into a customs and logistics pipeline that did not
-              exist as a template. I built it. The last unit was installed three days before the
-              first Toronto show, and we staged the same configuration at BC Place.
+              exist as a template. All 256 units were installed at Rogers Centre before the Toronto
+              shows.
             </p>
             <figure className="mt-2">
               <img
@@ -319,14 +319,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
             <p>
               Taylor Swift's Toronto opening night (November 21, 2024) moved{" "}
               <strong>7.4 TB of mobile data</strong> across Rogers 5G and LTE, a single-event record
-              at Rogers Centre. Across all six Toronto shows the network carried roughly{" "}
-              <strong>42 TB</strong>, more traffic every night than any other event at the venue.
-            </p>
-            <p>
-              Then Vancouver topped it: <strong>11+ TB in a single night</strong> at BC Place and{" "}
-              <strong>32 TB across three shows</strong>. Destination Toronto projected over $282M in
-              economic impact from the six Toronto dates. The deployment cleared the regulator and
-              held performance across every night of the run.
+              at Rogers Centre.
             </p>
           </Prose>
         </CaseSection>
@@ -353,18 +346,17 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     kicker: "Telecom · 5G · Award-winning",
     title: "TTC 5G Subway Launch",
     subtitle:
-      "Brought 5G to 85 Toronto subway stations and 15 km of tunnels on a federal deadline, with three carriers sharing one network through MOCN. Winner of the 2024 Ted Rogers Award for Innovation in 5G.",
+      "Technical prime for Rogers' TTC subway wireless build, with Bell and Telus connected through a multi-operator core network (MOCN). Ted Rogers Award for Innovation, December 2023.",
     meta: [
-      { label: "Role", value: "Delivery lead: MOCN integration" },
-      { label: "Scope", value: "85 stations · 15 km tunnels" },
+      { label: "Role", value: "Technical prime: Bell and Telus connection work, MOCN" },
+      { label: "Partners", value: "Bell · Telus · vendors · field operations" },
       { label: "Solution", value: "MOCN (Rogers + Bell + Telus)" },
-      { label: "Outcome", value: "Delivered ahead of federal deadline" },
+      { label: "Outcome", value: "Ted Rogers Award for Innovation (Dec 2023)" },
     ],
     hero: [
-      { value: "85", label: "Stations covered" },
-      { value: "15 km", label: "Tunnels covered" },
+      { value: "MOCN", label: "Shared-network connection" },
       { value: "3", label: "Carriers on one network" },
-      { value: "2024", label: "Ted Rogers Award" },
+      { value: "Dec 2023", label: "Ted Rogers Award" },
     ],
     body: (
       <>
@@ -376,7 +368,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
             loading="lazy"
           />
           <figcaption className="mt-2 text-xs text-muted-foreground">
-            Working on the ground to ensure the federal deadline was met.
+            On site in a TTC equipment room.
           </figcaption>
         </figure>
         <CaseSection label="Context" title="A federal deadline to connect the subway.">
@@ -420,10 +412,9 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         <CaseSection label="Outcome" title="Ahead of deadline, and an award.">
           <Prose>
             <p>
-              The launch covered <strong>85 stations and 15 km of tunnels</strong> and delivered
-              ahead of the federal deadline. The work won the{" "}
-              <strong>2024 Ted Rogers Award for Innovation in 5G deployment</strong>, Rogers' top
-              internal recognition for the year's standout 5G project.
+              I handled the Bell and Telus connection work, spearheaded the MOCN connection and
+              coordinated engineers from all three carriers, vendors and field operations. The work
+              earned the <strong>Ted Rogers Award for Innovation</strong> in December 2023.
             </p>
           </Prose>
         </CaseSection>

@@ -6,7 +6,7 @@ import { MetricStat, Pill, SectionLabel } from "@/components/site/primitives";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Eric Costa · Product Manager · AI & Telecom" },
+      { title: "Eric Costa · Technical Product Manager · Telecom & AI" },
       {
         name: "description",
         content:
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Data-driven PM. AI products in production, $35M in-building portfolio, Ted Rogers Award.",
+          "Technical PM in Canadian telecom: authored a $35.6M capital plan, Ted Rogers Award for Innovation, directs AI projects with Claude Code.",
       },
     ],
   }),
@@ -30,14 +30,14 @@ function Index() {
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="grid items-center gap-10 md:grid-cols-3 md:gap-12">
           <div className="md:col-span-2">
-            <SectionLabel>Product Manager · Toronto</SectionLabel>
+            <SectionLabel>Technical Product Manager · Toronto</SectionLabel>
             <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
-              I build AI products, both as an employee and a founder.
+              I plan and deliver telecom infrastructure, and direct AI projects on the side.
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-              PM at Rogers Communications. Six years across Canadian telecom delivery, now owning a
-              $35M in-building portfolio, one production RAG system, and three product-grade side
-              builds.
+              Product Manager for Rogers' in-building portfolio since 2024 (functional role; official
+              title Sr Network Designer), after four years as an RF Designer. I authored the proposed
+              $35.6M annual capital plan and direct personal AI projects with Claude Code.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
@@ -68,12 +68,12 @@ function Index() {
       {/* Metric strip */}
       <section className="border-y border-border bg-secondary/40">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-8 px-6 py-10 md:grid-cols-3 lg:grid-cols-6">
-          <MetricStat value="$35M" label="Portfolio owned" />
+          <MetricStat value="$35.6M" label="Capital plan authored" />
           <MetricStat value="7.4 TB" label="Single-event record" />
-          <MetricStat value="80%" label="RAG retrieval acc." />
-          <MetricStat value="+16%" label="911 call accuracy" />
-          <MetricStat value="30K" label="MAU built solo" />
-          <MetricStat value="2024" label="Ted Rogers Award" />
+          <MetricStat value="256" label="Under-seat units" />
+          <MetricStat value="$8M" label="Venue upgrade planned" />
+          <MetricStat value="2" label="Cutovers signed off" />
+          <MetricStat value="2023" label="Ted Rogers Award" />
         </div>
       </section>
 
@@ -158,23 +158,23 @@ function Index() {
             I don't have a decade of PM titles. I have product outcomes you can verify.
           </h2>
           <p className="mt-6 max-w-3xl text-muted-foreground">
-            My job at Rogers is product strategy and prioritization on a $35M portfolio, even when
-            the org chart called it RF Planning. Outside the office, I ship the things I'd otherwise
+            My job at Rogers is prioritization and capital planning for the in-building portfolio;
+            the org chart calls it Sr Network Designer. Outside the office, I ship the things I'd otherwise
             pitch in a case interview.
           </p>
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {[
               {
                 t: "Strategy & prioritization",
-                d: "Five-layer capital allocation matrix for Rogers in-building, defended through three steering committees. Wins: BC health authority (~$10M/yr for $3M build), EQ Bank (~$700K/yr over 10 years).",
+                d: "Prioritization framework and the proposed $35.6M annual capital plan from about $50M in requests. Examples: about $3M of hospital builds for a BC health authority tied to about $10M a year of existing revenue; a $400K system for a Canadian bank backed by $700K a year over 10 years.",
               },
               {
-                t: "Shipping AI in production",
-                d: "Telecom Standards Assistant (3GPP RAG): user research, defined accuracy and latency metrics, two security hardening rounds, public deploy. 37 specs, 43,121 chunks, 100% context precision.",
+                t: "AI projects, directed with Claude Code",
+                d: "Telecom Standards Assistant (3GPP RAG): a public demo with a retrieval evaluation set and 42 security fixes before release. Claude built and tested it; I approved or rejected its changes. 20 people used it at launch.",
               },
               {
                 t: "0→1 builder",
-                d: "Insights Stocks (9-model ensemble with FDR control), Football Intelligently (GATv2 on StatsBomb 360, AUC 0.760), Madrid Betar (0 → 30K MAU and a paid Prime tier).",
+                d: "finAlyse (several models run together on public trading disclosures), Football Intelligently (graph neural network on open StatsBomb data), Madrid Betar (fan-media platform co-founded with friends, with a paid Prime tier).",
               },
             ].map((c) => (
               <div key={c.t}>

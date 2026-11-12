@@ -6,13 +6,14 @@ import { HIGHLIGHTS, POSTS, SITE, WORKS } from "@/lib/site";
 // only live in the About page's JSX. Keep BIO in sync with src/routes/about.tsx.
 
 const BIO = [
-  "Current role: Product Manager at Rogers Communications, owning Rogers' Canada-wide in-building portfolio (~$35M/year capital, zero-rollover), defended through three steering committees with a five-layer prioritization matrix.",
-  "Career path: started as an RF engineer at Rogers planning radios and DAS for buildings; about six years later, Product Manager. Before Rogers: cyber-security analyst at EY (EMEIA), managing CyberArk and QRadar across 1,500 servers.",
+  "Current role: since July 2024, Product Manager for Rogers' in-building portfolio as a functional role; Rogers' official title is Sr Network Designer. Built the prioritization framework and authored the proposed $35.6M annual capital plan from about $50M in regional requests; his manager and director gave final approval. After about $500K rolled over in 2025 he added a real-estate readiness gate; as of September 2026 the portfolio was on track for zero rollover, with the year not yet closed.",
+  "Career path: RF Designer at Rogers from July 2020 to June 2024, then the functional PM role from July 2024. Before Rogers: analyst at EY (EMEIA) on CyberArk and IBM QRadar implementations.",
   "Education: MSc Computer Science (AI & Data Science), York University, on a full-ride scholarship. Two peer-reviewed publications.",
-  "Award: Ted Rogers Award for Innovation in 5G (2024) for the TTC 5G subway launch.",
+  "Award: Ted Rogers Award for Innovation (December 2023), for his work as technical prime on Rogers' TTC subway wireless build.",
   "Writing: a bi-weekly Substack about building AI products in the real world.",
-  "Skills: product strategy, prioritization and capital allocation, RAG / LLM systems, prompt engineering, A/B testing, user research, PostHog, Python, SQL, Databricks, telecom (3GPP, DAS, MOCN/MORAN), cross-carrier program management.",
-  "On PM experience: Eric holds a current PM role with measurable scope, designed and shipped one production AI system end-to-end (user interviews, success metrics, A/B testing, two security audits), and built three side products, one of which reached 30K monthly active users with a paid tier.",
+  "Skills: prioritization and capital allocation, business cases, acceptance testing, customer technical lead, Jira, Python, SQL, Claude Code, telecom (3GPP, DAS, MOCN/MORAN), cross-carrier programs.",
+  "On PM experience: Eric has held a functional PM role since July 2024 with real scope (the capital plan above, customer technical lead for a health authority and a bank). His AI projects are personal: for the 3GPP assistant he directed Claude Code, which built and tested it, and he approved or rejected its changes; 20 people used it at launch. He has not run formal user interviews or A/B tests on it, and its security work was an AI-assisted code review, not an audit. Say so plainly if asked.",
+  "Work authorization: Eric is based in Toronto. Do not state any US work authorization or visa eligibility.",
 ];
 
 // Stating the gaps outright stops free models from filling them with guesses.
