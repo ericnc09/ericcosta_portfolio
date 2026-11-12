@@ -54,7 +54,7 @@ function About() {
             <p className="text-muted-foreground">Based in</p>
             <p>Toronto, Canada</p>
             <p className="mt-3 text-muted-foreground">Currently</p>
-            <p>Product Manager, In-Building Portfolio, Rogers (functional role; official title Sr Network Designer)</p>
+            <p>Product Manager, In-Building Portfolio, Rogers (functional role)</p>
             <p className="mt-3 text-muted-foreground">Education</p>
             <p>MSc Computer Science (AI & Data Science), York University</p>
           </div>
@@ -63,8 +63,8 @@ function About() {
         <div className="space-y-6 text-[15px] leading-relaxed text-foreground/85">
           <p>
             I joined Rogers in 2020 as an RF Designer, planning wireless coverage for buildings most
-            people never look up at. Since July 2024 I've worked as the Product Manager for the
-            in-building portfolio (Rogers' official title is Sr Network Designer). I built the
+            people never look up at. Since July 2024 I've worked as the product manager for the
+            in-building portfolio. I built the
             prioritization framework and authored the proposed <strong>$35.6M</strong> annual capital
             plan from about $50M in requests; my manager and director approve it.
           </p>
@@ -79,19 +79,17 @@ function About() {
           <div className="rounded-lg border border-border bg-secondary/50 p-6">
             <SectionLabel>On the "no PM on paper" question</SectionLabel>
             <p className="mt-3 text-foreground/85">
-              Fair question. My PM role at Rogers is functional; the payroll title is Sr Network
-              Designer. What I can show: a capital plan I authored and defended line by line,
-              customers I've met as technical focal point, cutovers I signed off, and personal AI
-              projects I direct with Claude Code. I'd rather you hear the boundaries from me than
-              find them later.
+              My PM role at Rogers is functional; the payroll title is Sr Network Designer. The work is
+              product work: a $35.6M capital plan I authored and defended line by line, enterprise
+              customers I've met as technical focal point, and network cutovers I signed off. Outside
+              work, I direct AI projects with Claude Code.
             </p>
           </div>
 
           <p>
             Outside Rogers I direct personal AI projects with Claude Code: the{" "}
-            <strong>Telecom Standards Assistant (3GPP RAG)</strong>, a public demo that 20 people used
-            at launch, where Claude built and tested the system and I approved or rejected its
-            changes; <strong>finAlyse</strong>, which runs several models together to analyze public
+            <strong>Telecom Standards Assistant (3GPP RAG)</strong>, a public demo that answers
+            standards questions with citations; <strong>finAlyse</strong>, which runs several models together to analyze public
             trading disclosures; and <strong>Football Intelligently</strong>, a graph neural network
             research project on open StatsBomb data.
           </p>

@@ -12,7 +12,7 @@ const BIO = [
   "Award: Ted Rogers Award for Innovation (December 2023), for his work as technical prime on Rogers' TTC subway wireless build.",
   "Writing: a bi-weekly Substack about building AI products in the real world.",
   "Skills: prioritization and capital allocation, business cases, acceptance testing, customer technical lead, Jira, Python, SQL, Claude Code, telecom (3GPP, DAS, MOCN/MORAN), cross-carrier programs.",
-  "On PM experience: Eric has held a functional PM role since July 2024 with real scope (the capital plan above, customer technical lead for a health authority and a bank). His AI projects are personal: for the 3GPP assistant he directed Claude Code, which built and tested it, and he approved or rejected its changes; 20 people used it at launch. He has not run formal user interviews or A/B tests on it, and its security work was an AI-assisted code review, not an audit. Say so plainly if asked.",
+  "On PM experience: Eric has held a functional PM role since July 2024 with real scope (the capital plan above, customer technical lead for a health authority and a bank). His AI projects (the 3GPP assistant, finAlyse, Football Intelligently) are personal projects he directed with Claude Code: Claude built and tested them, and he approved or rejected the changes. 20 people used the 3GPP assistant at launch. He has not run formal user interviews or A/B tests on it, and its security work was an AI-assisted code review, not an audit. Say so plainly if asked.",
   "Work authorization: Eric is based in Toronto. Do not state any US work authorization or visa eligibility.",
 ];
 

@@ -32,12 +32,13 @@ function Index() {
           <div className="md:col-span-2">
             <SectionLabel>Technical Product Manager · Toronto</SectionLabel>
             <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
-              I plan and deliver telecom infrastructure, and direct AI projects on the side.
+              Technical product manager for Canadian telecom infrastructure.
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-              Product Manager for Rogers' in-building portfolio since 2024 (functional role; official
-              title Sr Network Designer), after four years as an RF Designer. I authored the proposed
-              $35.6M annual capital plan and direct personal AI projects with Claude Code.
+              I authored Rogers' proposed $35.6M annual in-building capital plan and direct AI
+              projects with Claude Code. Product manager for the in-building portfolio since 2024
+              (functional role; official title Sr Network Designer), after four years as an RF
+              Designer.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
@@ -72,7 +73,7 @@ function Index() {
           <MetricStat value="7.4 TB" label="Single-event record" />
           <MetricStat value="256" label="Under-seat units" />
           <MetricStat value="$8M" label="Venue upgrade planned" />
-          <MetricStat value="2" label="Cutovers signed off" />
+          <MetricStat value="~$50M" label="Requests prioritized" />
           <MetricStat value="2023" label="Ted Rogers Award" />
         </div>
       </section>
@@ -158,8 +159,7 @@ function Index() {
             I don't have a decade of PM titles. I have product outcomes you can verify.
           </h2>
           <p className="mt-6 max-w-3xl text-muted-foreground">
-            My job at Rogers is prioritization and capital planning for the in-building portfolio;
-            the org chart calls it Sr Network Designer. Outside the office, I ship the things I'd otherwise
+            My job at Rogers is prioritization and capital planning for the in-building portfolio. Outside the office, I ship the things I'd otherwise
             pitch in a case interview.
           </p>
           <div className="mt-12 grid gap-10 md:grid-cols-3">
@@ -170,7 +170,7 @@ function Index() {
               },
               {
                 t: "AI projects, directed with Claude Code",
-                d: "Telecom Standards Assistant (3GPP RAG): a public demo with a retrieval evaluation set and 42 security fixes before release. Claude built and tested it; I approved or rejected its changes. 20 people used it at launch.",
+                d: "Telecom Standards Assistant (3GPP RAG): a public demo with a retrieval evaluation set and 42 security fixes before release.",
               },
               {
                 t: "0→1 builder",

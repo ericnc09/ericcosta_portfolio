@@ -21,7 +21,7 @@ export const WORKS = [
     title: "AI-Powered Wiki - Telecom RAG",
     kicker: "AI · Personal project · Public demo",
     summary:
-      "A personal assistant for 3GPP telecom standards questions, with citations on every answer. I directed it; Claude Code built and tested it, and I approved or rejected its changes. 20 people used it at launch.",
+      "A public assistant for 3GPP telecom standards questions, with citations on every answer. A personal project directed with Claude Code.",
     metric: "Public demo",
     sub: "Retrieval eval set in the public repo · 42 security fixes before release",
   },
@@ -55,9 +55,9 @@ export const WORKS = [
   {
     slug: "madrid-betar",
     title: "Madrid Betar: Real Madrid Fan Platform",
-    kicker: "Startup · 0→1 · Founder",
+    kicker: "Startup · 0→1 · Co-founder",
     summary:
-      "Co-founded a Real Madrid fan-media platform with friends, across websites and football podcasts, with a paid subscription tier.",
+      "Co-founded a Real Madrid fan-media platform that grew to 30,000 monthly active users across websites and football podcasts, with a paid subscription tier.",
     metric: "0 → 30K MAU",
     sub: "50K monthly visitors in 6 months · paid Prime tier",
   },
@@ -66,9 +66,9 @@ export const WORKS = [
     title: "Football Intelligently: GNN xG",
     kicker: "AI · ML Research · 0→1",
     summary:
-      "A graph neural network that values shots from StatsBomb 360 freeze frames, reaching 95.7% of StatsBomb's proprietary xG using only free, open data.",
-    metric: "0.760 AUC",
-    sub: "8,013 shots · 7 competitions · MIT Sloan paper in progress",
+      "A graph neural network research project that values shots from open StatsBomb 360 freeze frames. Directed with Claude Code.",
+    metric: "GNN research",
+    sub: "Open StatsBomb 360 data · analyst dashboard",
   },
 ] as const;
 
