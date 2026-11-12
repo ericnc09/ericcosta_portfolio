@@ -356,6 +356,37 @@ function SmartMoneySignals() {
             </a>
           </div>
         </section>
+
+        <section aria-labelledby="live-disclosures" className="py-20 md:py-24 px-6">
+          <div className="max-w-5xl mx-auto">
+            <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
+              Live companion
+            </p>
+            <h2 id="live-disclosures" className="font-serif text-3xl md:text-4xl font-bold">
+              See today's disclosures in finAlyse.
+            </h2>
+            <p className="mt-4 max-w-2xl text-gray-600 leading-relaxed">
+              A daily compilation of open-market insider trades from recent SEC filings, with the
+              filing dates and sources beside each trade.
+            </p>
+            <Link
+              to="/finalyse"
+              className="group mt-10 flex w-full items-center justify-between gap-6 rounded-2xl bg-black px-7 py-8 md:px-10 md:py-10 text-white shadow-xl transition-all hover:bg-gray-800 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4"
+            >
+              <span className="text-left">
+                <span className="block font-serif text-2xl md:text-4xl font-bold">
+                  Open finAlyse
+                </span>
+                <span className="mt-2 block text-sm md:text-base text-gray-300">
+                  Browse the latest insider trade disclosures
+                </span>
+              </span>
+              <span className="flex h-12 w-12 md:h-16 md:w-16 flex-shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform group-hover:translate-x-1">
+                <ArrowRight aria-hidden="true" className="h-6 w-6 md:h-7 md:w-7" />
+              </span>
+            </Link>
+          </div>
+        </section>
       </main>
 
       <footer className="bg-white border-t border-gray-200 py-12 px-6">
