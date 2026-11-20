@@ -8,8 +8,7 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact · Eric Costa" },
       {
         name: "description",
-        content:
-          "Get in touch with Eric Costa, technical product manager based in Toronto.",
+        content: "Get in touch with Eric Costa, technical product manager based in Toronto.",
       },
       { property: "og:title", content: "Contact Eric Costa" },
       { property: "og:description", content: "Email, LinkedIn, GitHub, Substack." },

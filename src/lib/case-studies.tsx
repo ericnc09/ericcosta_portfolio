@@ -191,12 +191,12 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         <CaseSection label="Usage" title="Who used it, and who built what.">
           <Prose>
             <p>
-              <strong>20 people</strong> used the public demo at launch, including three teammates who
-              tried it. I directed the project: Claude, through Claude
-              Code, built and tested it, and I approved or rejected its changes. The public repo
-              includes the retrieval evaluation set Claude built, and an AI-assisted source-code
-              security review implemented <strong>42 fixes</strong> before release. That was a
-              code review by Claude, not an audit.
+              <strong>20 people</strong> used the public demo at launch, including three teammates
+              who tried it. I directed the project: Claude, through Claude Code, built and tested
+              it, and I approved or rejected its changes. The public repo includes the retrieval
+              evaluation set Claude built, and an AI-assisted source-code security review
+              implemented <strong>42 fixes</strong> before release. That was a code review by
+              Claude, not an audit.
             </p>
           </Prose>
         </CaseSection>
@@ -262,10 +262,10 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
           <Prose>
             <p>
               I guided the engineering teams and a product manager through the trade study comparing
-              Ericsson DOT against Crossfire BTI for under-seat deployment. The decision rested on three axes: thermal behavior in an enclosed seat
-              cavity, Safety Code 6 RF exposure compliance with humans{" "}
-              <em>literally sitting on top of the radio</em>, and supply-chain certainty inside the
-              window.
+              Ericsson DOT against Crossfire BTI for under-seat deployment. The decision rested on
+              three axes: thermal behavior in an enclosed seat cavity, Safety Code 6 RF exposure
+              compliance with humans <em>literally sitting on top of the radio</em>, and
+              supply-chain certainty inside the window.
             </p>
             <p>
               Ericsson DOT won on compliance and on the thermal envelope. The team redesigned the
@@ -557,9 +557,9 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
             <p>
               Classic expected-goals (xG) models treat a shot as a handful of scalar features:
               distance, angle, body part. But whether a shot goes in depends on where every other
-              player is standing. The project models each shot as a graph, players as nodes and their
-              spatial interactions as edges, so the model can reason about defensive shape and goalkeeper
-              positioning as relational structure.
+              player is standing. The project models each shot as a graph, players as nodes and
+              their spatial interactions as edges, so the model can reason about defensive shape and
+              goalkeeper positioning as relational structure.
             </p>
           </Prose>
         </CaseSection>
@@ -596,7 +596,6 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
             </figure>
           </Prose>
         </CaseSection>
-
       </>
     ),
     links: [{ label: "GitHub", href: "https://github.com/ericnc09/football-analysis" }],

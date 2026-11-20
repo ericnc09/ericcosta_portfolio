@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "PM at Rogers shipping AI products in a regulated telecom. Eras Tour, TTC 5G, MOCN decoupling, 3GPP RAG. $35M portfolio.",
+          "Technical PM at Rogers (functional role) in a regulated telecom. Eras Tour, TTC 5G, MOCN decoupling, $35.6M capital plan, AI projects directed with Claude Code.",
       },
       { property: "og:title", content: "Eric Costa, Product Manager" },
       {
@@ -159,8 +159,8 @@ function Index() {
             I don't have a decade of PM titles. I have product outcomes you can verify.
           </h2>
           <p className="mt-6 max-w-3xl text-muted-foreground">
-            My job at Rogers is prioritization and capital planning for the in-building portfolio. Outside the office, I ship the things I'd otherwise
-            pitch in a case interview.
+            My job at Rogers is prioritization and capital planning for the in-building portfolio.
+            Outside the office, I ship the things I'd otherwise pitch in a case interview.
           </p>
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {[

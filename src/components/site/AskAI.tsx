@@ -17,7 +17,7 @@ const SUGGESTED: { label: string; questions: { q: string; hint: string }[] }[] =
     label: "Who is Eric",
     questions: [
       { q: "Walk me through your career", hint: "RF engineer to PM" },
-      { q: "What do you own at Rogers today?", hint: "$35M portfolio" },
+      { q: "What do you own at Rogers today?", hint: "$35.6M capital plan" },
       { q: "What is your technical background?", hint: "MSc in AI" },
       { q: "What do you write about?", hint: "Substack" },
     ],

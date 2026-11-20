@@ -1,7 +1,8 @@
 export const SITE = {
   name: "Eric Costa",
   role: "Product Manager",
-  tagline: "Technical product manager in Canadian telecom infrastructure, directing AI projects on the side.",
+  tagline:
+    "Technical product manager in Canadian telecom infrastructure, directing AI projects on the side.",
   email: "ericcosta.public@gmail.com",
   phone: "(416) 573-1986",
   location: "Toronto, Canada",

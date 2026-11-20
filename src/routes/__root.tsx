@@ -84,13 +84,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Eric Costa · Product Manager" },
       {
         name: "description",
-        content: "Product Manager shipping AI products inside a regulated telecom.",
+        content:
+          "Technical product manager in Canadian telecom who directs AI projects with Claude Code.",
       },
       { name: "author", content: "Eric Costa" },
       { property: "og:title", content: "Eric Costa · Product Manager" },
       {
         property: "og:description",
-        content: "Product Manager shipping AI products inside a regulated telecom.",
+        content:
+          "Technical product manager in Canadian telecom who directs AI projects with Claude Code.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
