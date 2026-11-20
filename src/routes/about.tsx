@@ -9,12 +9,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "PM at Rogers, MSc in CS (AI/Data Science), Ted Rogers Award winner, AI builder shipping production RAG systems.",
+          "Technical product manager at Rogers (functional role), MSc in CS (AI/Data Science), Ted Rogers Award for Innovation, directs AI projects with Claude Code.",
       },
       { property: "og:title", content: "About Eric Costa" },
       {
         property: "og:description",
-        content: "From RF engineer to PM at Rogers, with AI products shipped on the side.",
+        content:
+          "From RF designer to a functional PM role at Rogers, with AI projects on the side.",
       },
     ],
   }),
@@ -25,13 +26,12 @@ const SKILLS = [
   "Product Strategy",
   "Prioritization & Capital Allocation",
   "RAG / LLM Systems",
-  "Prompt Engineering",
-  "A/B Testing",
-  "User Research",
-  "PostHog",
+  "Business Cases",
+  "Acceptance Testing",
+  "Claude Code",
   "Python",
   "SQL",
-  "Databricks",
+  "Jira",
   "Telecom (3GPP, DAS, MOCN/MORAN)",
   "Cross-carrier program management",
 ];
@@ -53,9 +53,9 @@ function About() {
           />
           <div className="mt-6 space-y-2 text-sm">
             <p className="text-muted-foreground">Based in</p>
-            <p>Toronto, Canada · TN-visa eligible</p>
+            <p>Toronto, Canada</p>
             <p className="mt-3 text-muted-foreground">Currently</p>
-            <p>Product Manager, Rogers Communications</p>
+            <p>Product Manager, In-Building Portfolio, Rogers (functional role)</p>
             <p className="mt-3 text-muted-foreground">Education</p>
             <p>MSc Computer Science (AI & Data Science), York University</p>
           </div>
@@ -63,46 +63,42 @@ function About() {
 
         <div className="space-y-6 text-[15px] leading-relaxed text-foreground/85">
           <p>
-            I started as an RF engineer at Rogers, planning radios and DAS for buildings most people
-            never look up at. Six years later I'm a Product Manager owning Rogers' Canada-wide
-            in-building portfolio, roughly <strong>$35M a year</strong>, with a zero-rollover
-            constraint and steering committees that don't take "trust me" for an answer.
+            I joined Rogers in 2020 as an RF Designer, planning wireless coverage for buildings most
+            people never look up at. Since July 2024 I've worked as the product manager for the
+            in-building portfolio. I built the prioritization framework and authored the proposed{" "}
+            <strong>$35.6M</strong> annual capital plan from about $50M in requests; my manager and
+            director approve it.
           </p>
           <p>
-            Along the way I built a five-layer prioritization matrix to defend the line items, led
-            the cross-carrier MOCN integration that delivered TTC 5G ahead of a federal deadline
-            (and won the <strong>Ted Rogers Award for Innovation in 5G</strong>, 2024), and ran the
-            first under-seat DOT deployment in Canada for Taylor Swift's Eras Tour at Rogers Centre
-            and BC Place. The Toronto night set a single-event data record on Rogers' network:{" "}
-            <strong>7.4 TB</strong>.
+            Along the way I was technical prime for Rogers' TTC subway wireless build, handling the
+            Bell and Telus connection work and the MOCN connection (it earned the{" "}
+            <strong>Ted Rogers Award for Innovation</strong>, Dec 2023). I owned system planning and
+            funding for an $8M Rogers Centre 5G upgrade, including 256 under-seat units; the network
+            carried a venue-record <strong>7.4 TB</strong> during one Taylor Swift show.
           </p>
 
           <div className="rounded-lg border border-border bg-secondary/50 p-6">
             <SectionLabel>On the "no PM on paper" question</SectionLabel>
             <p className="mt-3 text-foreground/85">
-              I get it. I don't have a decade of Senior PM titles. What I do have: a current PM role
-              with measurable scope, one production AI system I designed and shipped end-to-end
-              (with user interviews, success metrics, A/B testing, and two security audits), and
-              three side products that exist in the wild, including one with 30K monthly active
-              users and a paid tier. If the bar is "would I build this here from day one," the work
-              answers yes.
+              My PM role at Rogers is functional; the payroll title is Sr Network Designer. The work
+              is product work: a $35.6M capital plan I authored and defended line by line,
+              enterprise customers I've met as technical focal point, and network cutovers I signed
+              off. Outside work, I direct AI projects with Claude Code.
             </p>
           </div>
 
           <p>
-            Outside Rogers I built the <strong>Telecom Standards Assistant (3GPP RAG)</strong> (37
-            specs, 43,121 chunks, 100% context precision, deployed publicly after two security
-            hardening rounds), <strong>Insights Stocks</strong> (9 quant models with
-            Benjamini-Hochberg FDR control and a Granger causality gate, pushing trade signals to
-            Slack), and <strong>Football Intelligently</strong> (a GATv2 graph neural network on
-            StatsBomb 360 freeze frames that hits 95.7% of StatsBomb's proprietary xG performance
-            using only open data).
+            Outside Rogers I direct personal AI projects with Claude Code: the{" "}
+            <strong>Telecom Standards Assistant (3GPP RAG)</strong>, a public demo that answers
+            standards questions with citations; <strong>finAlyse</strong>, which runs several models
+            together to analyze public trading disclosures; and{" "}
+            <strong>Football Intelligently</strong>, a graph neural network research project on open
+            StatsBomb data.
           </p>
           <p>
             I have an MSc in Computer Science from York (AI & Data Science, full-ride scholarship),
-            two peer-reviewed publications, and a Substack where I write bi-weekly about building AI
-            products in the real world. Before Rogers I was a cyber-security analyst at EY in EMEIA,
-            managing CyberArk and QRadar across 1,500 servers.
+            peer-reviewed publications, and a Substack about building AI products. Before Rogers I
+            was an analyst at EY in EMEIA, on CyberArk and IBM QRadar implementations.
           </p>
 
           <div className="pt-4">

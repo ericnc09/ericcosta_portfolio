@@ -1,10 +1,11 @@
 export const SITE = {
   name: "Eric Costa",
   role: "Product Manager",
-  tagline: "Product Manager shipping AI products inside a regulated telecom.",
+  tagline:
+    "Technical product manager in Canadian telecom infrastructure, directing AI projects on the side.",
   email: "ericcosta.public@gmail.com",
   phone: "(416) 573-1986",
-  location: "Toronto, Canada · TN-visa eligible",
+  location: "Toronto, Canada",
   linkedin: "https://www.linkedin.com/in/ericcostanil",
   github: "https://github.com/ericnc09",
   substack: "https://ericccosta.substack.com",
@@ -19,20 +20,20 @@ export const WORKS = [
   {
     slug: "3gpp-rag",
     title: "AI-Powered Wiki - Telecom RAG",
-    kicker: "AI · 0→1 · Production",
+    kicker: "AI · Personal project · Public demo",
     summary:
-      "A retrieval assistant over 37 3GPP specs that turns hours of manual spec hunting into seconds, with citations on every answer. 25+ users in its first three months.",
-    metric: "25+ users in 3 months",
-    sub: "37 specs · 43,121 chunks · $0 per query",
+      "A public assistant for 3GPP telecom standards questions, with citations on every answer. A personal project directed with Claude Code.",
+    metric: "Public demo",
+    sub: "Retrieval eval set in the public repo · 42 security fixes before release",
   },
   {
     slug: "ttc-5g",
     title: "5G in Toronto Subway",
     kicker: "Telecom · 5G · Award-winning",
     summary:
-      "Brought 5G to the Toronto subway, 85 stations and 15 km of tunnels, on a federal deadline, accommodating Bell and Telus on one shared network via MOCN.",
-    metric: "Ted Rogers Award 2024",
-    sub: "Innovation in 5G deployment · delivered ahead of deadline",
+      "Technical prime for Rogers' TTC subway wireless build: handled the Bell and Telus connection work, spearheaded the MOCN connection and coordinated engineers from all three carriers.",
+    metric: "Ted Rogers Award (Dec 2023)",
+    sub: "Ted Rogers Award for Innovation",
   },
   {
     slug: "insights-stocks",
@@ -48,16 +49,16 @@ export const WORKS = [
     title: "Taylor Swift Eras Tour: Under-Seat DOT",
     kicker: "Telecom · Hardware · Capital",
     summary:
-      "First under-seat DOT deployment in Canada: 256 units across Rogers Centre and BC Place, delivered three days before showtime.",
+      "Owned system planning and funding allocation for an $8M Rogers Centre 5G upgrade, including about $400K of under-seat scope and 256 installed units.",
     metric: "7.4 TB in one night",
-    sub: "Single-event data record on Rogers 5G + LTE",
+    sub: "Venue data record during one Taylor Swift show at Rogers Centre",
   },
   {
     slug: "madrid-betar",
     title: "Madrid Betar: Real Madrid Fan Platform",
-    kicker: "Startup · 0→1 · Founder",
+    kicker: "Startup · 0→1 · Co-founder",
     summary:
-      "Co-founded a Real Madrid fan-media startup and grew it from zero to 30,000 monthly active users across web and podcasts, with a paid subscription tier.",
+      "Co-founded a Real Madrid fan-media platform that grew to 30,000 monthly active users across websites and football podcasts, with a paid subscription tier.",
     metric: "0 → 30K MAU",
     sub: "50K monthly visitors in 6 months · paid Prime tier",
   },
@@ -66,9 +67,9 @@ export const WORKS = [
     title: "Football Intelligently: GNN xG",
     kicker: "AI · ML Research · 0→1",
     summary:
-      "A graph neural network that values shots from StatsBomb 360 freeze frames, reaching 95.7% of StatsBomb's proprietary xG using only free, open data.",
-    metric: "0.760 AUC",
-    sub: "8,013 shots · 7 competitions · MIT Sloan paper in progress",
+      "A graph neural network research project that values shots from open StatsBomb 360 freeze frames. Directed with Claude Code.",
+    metric: "GNN research",
+    sub: "Open StatsBomb 360 data · analyst dashboard",
   },
 ] as const;
 
@@ -76,20 +77,20 @@ export type WorkSlug = (typeof WORKS)[number]["slug"];
 
 export const HIGHLIGHTS = [
   {
-    title: "First under-seat DOT deployment in Canada",
-    body: "Led the first under-seat distributed antenna (DOT) deployment in Canada, 256 units, for the Taylor Swift Eras Tour at Rogers Centre.",
+    title: "Rogers Centre 5G upgrade",
+    body: "Owned system planning and funding allocation for an $8M Rogers Centre 5G upgrade, including about $400K of under-seat scope and 256 installed units. The network carried a venue-record 7.4 TB during one Taylor Swift show.",
   },
   {
-    title: "Provincial network decoupling",
-    body: "Owned in-building decoupling for the provincial decouple program, with another carrier and Rogers exiting MOCN network sharing.",
+    title: "Manitoba network cutovers",
+    body: "Led acceptance testing and sign-off for the Brandon and Winnipeg network cutovers in the Manitoba decoupling program, running night-one tests and multi-day soaks with KPI monitoring.",
   },
   {
-    title: "$35M in-building capital framework",
-    body: "Own prioritization and capital allocation for Rogers' Canada-wide in-building portfolio (~$35M/year, zero-rollover). Built a five-layer matrix and defended every line through three steering committees. High-ROI wins: a BC provincial health authority (~$10M/yr of business for a ~$3M build) and EQ Bank (~$400K build securing ~$700K/yr over 10 years).",
+    title: "$35.6M in-building capital plan",
+    body: "Built the prioritization framework, decided and defended every line item, and authored the proposed $35.6M annual capital plan from about $50M in regional requests; my manager and director gave final approval. Examples: about $3M of hospital builds for a BC provincial health authority tied to about $10M a year of existing Rogers revenue, and a $400K system for a Canadian bank backed by $700K a year in contract revenue over 10 years.",
   },
   {
-    title: "Ted Rogers Award for Innovation in 5G (2024)",
-    body: "Led the TTC 5G subway launch, 85 stations and 15 km of tunnels, delivered under a federal regulatory deadline via a MOCN solution integrating Bell and Telus into the TTC DAS.",
+    title: "Ted Rogers Award for Innovation (Dec 2023)",
+    body: "Technical prime for Rogers' TTC subway wireless build: handled the Bell and Telus connection work, spearheaded the MOCN connection and coordinated engineers from all three carriers, vendors and field operations.",
   },
 ] as const;
 
@@ -97,7 +98,7 @@ export const POSTS = [
   {
     title: "The Hardest Part of Building an AI Product Isn't the AI",
     blurb:
-      "42 vulnerabilities, a hanging GPU, and 2007-era file formats: the gap between demo and deploy.",
+      "42 security fixes, a hanging GPU, and 2007-era file formats: the gap between demo and deploy.",
     href: "https://ericccosta.substack.com/p/the-hardest-part-of-building-an-ai",
   },
   {

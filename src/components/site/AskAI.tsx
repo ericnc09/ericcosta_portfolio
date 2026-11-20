@@ -17,7 +17,7 @@ const SUGGESTED: { label: string; questions: { q: string; hint: string }[] }[] =
     label: "Who is Eric",
     questions: [
       { q: "Walk me through your career", hint: "RF engineer to PM" },
-      { q: "What do you own at Rogers today?", hint: "$35M portfolio" },
+      { q: "What do you own at Rogers today?", hint: "$35.6M capital plan" },
       { q: "What is your technical background?", hint: "MSc in AI" },
       { q: "What do you write about?", hint: "Substack" },
     ],
@@ -25,10 +25,10 @@ const SUGGESTED: { label: string; questions: { q: string; hint: string }[] }[] =
   {
     label: "The work",
     questions: [
-      { q: "What AI products have you shipped?", hint: "RAG, finAlyse, GNN" },
-      { q: "How did you bring 5G to the Toronto subway?", hint: "Ted Rogers Award" },
+      { q: "What AI projects have you built?", hint: "RAG, finAlyse, GNN" },
+      { q: "What did you do on the TTC subway build?", hint: "Ted Rogers Award" },
       { q: "What was the Taylor Swift Eras Tour project?", hint: "7.4 TB in a night" },
-      { q: "Tell me about Madrid Betar", hint: "0 to 30K MAU" },
+      { q: "Tell me about Madrid Betar", hint: "Co-founded fan platform" },
     ],
   },
   {
